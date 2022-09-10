@@ -1,0 +1,12 @@
+{
+  "AppSyncApiName": "voitrain",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2022-09-10T16:12:18.947Z",
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authvoitrain",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
