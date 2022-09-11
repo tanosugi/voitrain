@@ -54,5 +54,17 @@
         }
       }
     }
+  },
+  "predictions": {
+    "speechGenerator858518b1": {
+      "providerPlugin": "awscloudformation",
+      "service": "Polly",
+      "convertType": "speechGenerator"
+    },
+    "transcription4b492f8b": {
+      "providerPlugin": "awscloudformation",
+      "service": "Transcribe",
+      "convertType": "transcription"
+    }
   }
 }

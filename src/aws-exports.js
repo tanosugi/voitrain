@@ -26,7 +26,26 @@ const awsmobile = {
     ],
     "aws_appsync_graphqlEndpoint": "https://a3bxxfhigfdt7nakyxnypzijky.appsync-api.ap-northeast-1.amazonaws.com/graphql",
     "aws_appsync_region": "ap-northeast-1",
-    "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS"
+    "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS",
+    "predictions": {
+        "convert": {
+            "speechGenerator": {
+                "region": "ap-northeast-1",
+                "proxy": false,
+                "defaults": {
+                    "VoiceId": "Kevin",
+                    "LanguageCode": "en-US"
+                }
+            },
+            "transcription": {
+                "region": "ap-northeast-1",
+                "proxy": false,
+                "defaults": {
+                    "language": "en-US"
+                }
+            }
+        }
+    }
 };
 
 

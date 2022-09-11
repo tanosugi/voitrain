@@ -9,6 +9,7 @@ import React from "react";
 import {
   getOverrideProps,
   useDataStoreDeleteAction,
+  useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import { CardSet } from "../models";
 import { schema } from "../models/schema";
@@ -20,10 +21,14 @@ export default function CardSetView(props) {
     model: CardSet,
     schema: schema,
   });
-  const vectorOnClick = useDataStoreDeleteAction({
+  const vectorFourThreeTwoEightOnClick = useDataStoreDeleteAction({
     id: cardset?.id,
     model: CardSet,
     schema: schema,
+  });
+  const playOnClick = useNavigateAction({
+    type: "url",
+    url: `${"practice/"}${cardset?.id}`,
   });
   return (
     <View
@@ -55,52 +60,6 @@ export default function CardSetView(props) {
         children={cardset?.name}
         {...getOverrideProps(overrides, "Name")}
       ></Text>
-      <Icon
-        width="16.0416259765625px"
-        height="20.416656494140625px"
-        viewBox={{
-          minX: 0,
-          minY: 0,
-          width: 16.0416259765625,
-          height: 20.416656494140625,
-        }}
-        paths={[
-          {
-            d: "M0 0L0 20.4167L16.0417 10.2083L0 0Z",
-            fill: "rgba(0,0,0,1)",
-            fillRule: "nonzero",
-          },
-        ]}
-        position="absolute"
-        top="61.38%"
-        bottom="24.54%"
-        left="55.24%"
-        right="39.15%"
-        {...getOverrideProps(overrides, "Start")}
-      ></Icon>
-      <Icon
-        width="18.00244140625px"
-        height="18.00250244140625px"
-        viewBox={{
-          minX: 0,
-          minY: 0,
-          width: 18.00244140625,
-          height: 18.00250244140625,
-        }}
-        paths={[
-          {
-            d: "M17.71 4.0425C18.1 3.6525 18.1 3.0025 17.71 2.6325L15.37 0.2925C15 -0.0975 14.35 -0.0975 13.96 0.2925L12.12 2.1225L15.87 5.8725M0 14.2525L0 18.0025L3.75 18.0025L14.81 6.9325L11.06 3.1825L0 14.2525Z",
-            fill: "rgba(0,0,0,1)",
-            fillRule: "nonzero",
-          },
-        ]}
-        position="absolute"
-        top="61.38%"
-        bottom="26.21%"
-        left="71.68%"
-        right="22.03%"
-        {...getOverrideProps(overrides, "Edit")}
-      ></Icon>
       <View
         position="absolute"
         top="60.69%"
@@ -131,9 +90,9 @@ export default function CardSetView(props) {
           left="20.83%"
           right="20.83%"
           onClick={() => {
-            vectorOnClick();
+            vectorFourThreeTwoEightOnClick();
           }}
-          {...getOverrideProps(overrides, "Vector")}
+          {...getOverrideProps(overrides, "Vector4328")}
         ></Icon>
       </View>
       <Image
@@ -146,6 +105,77 @@ export default function CardSetView(props) {
         src={cardset?.image_url}
         {...getOverrideProps(overrides, "Image")}
       ></Image>
+      <View
+        width="29px"
+        height="29px"
+        position="absolute"
+        top="85px"
+        left="158px"
+        overflow="hidden"
+        padding="0px 0px 0px 0px"
+        onClick={() => {
+          playOnClick();
+        }}
+        {...getOverrideProps(overrides, "play")}
+      >
+        <Icon
+          width="13.2916259765625px"
+          height="16.916656494140625px"
+          viewBox={{
+            minX: 0,
+            minY: 0,
+            width: 13.2916259765625,
+            height: 16.916656494140625,
+          }}
+          paths={[
+            {
+              d: "M0 0L0 16.9167L13.2917 8.45833L0 0Z",
+              fill: "rgba(0,0,0,1)",
+              fillRule: "nonzero",
+            },
+          ]}
+          position="absolute"
+          top="21.42%"
+          bottom="20.25%"
+          left="33.33%"
+          right="20.83%"
+          {...getOverrideProps(overrides, "Vector775")}
+        ></Icon>
+      </View>
+      <View
+        width="24px"
+        height="24px"
+        position="absolute"
+        top="88px"
+        left="206px"
+        overflow="hidden"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "pencil")}
+      >
+        <Icon
+          width="18.00244140625px"
+          height="18.00250244140625px"
+          viewBox={{
+            minX: 0,
+            minY: 0,
+            width: 18.00244140625,
+            height: 18.00250244140625,
+          }}
+          paths={[
+            {
+              d: "M17.71 4.0425C18.1 3.6525 18.1 3.0025 17.71 2.6325L15.37 0.2925C15 -0.0975 14.35 -0.0975 13.96 0.2925L12.12 2.1225L15.87 5.8725M0 14.2525L0 18.0025L3.75 18.0025L14.81 6.9325L11.06 3.1825L0 14.2525Z",
+              fill: "rgba(0,0,0,1)",
+              fillRule: "nonzero",
+            },
+          ]}
+          position="absolute"
+          top="12.49%"
+          bottom="12.5%"
+          left="12.5%"
+          right="12.49%"
+          {...getOverrideProps(overrides, "Vector863")}
+        ></Icon>
+      </View>
     </View>
   );
 }

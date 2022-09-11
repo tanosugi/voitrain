@@ -7,6 +7,7 @@
 export { default as CardView } from "./CardView";
 export { default as CardSetView } from "./CardSetView";
 export { default as CardSetEdit } from "./CardSetEdit";
+export { default as CardListingView } from "./CardListingView";
 export { default as CardEdit } from "./CardEdit";
 export { default as CardViewCollection } from "./CardViewCollection";
 export { default as CardSetViewCollection } from "./CardSetViewCollection";

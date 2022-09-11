@@ -29,17 +29,6 @@ export default function CardSetEdit(props) {
         src={cardset?.image_url}
         {...getOverrideProps(overrides, "Image")}
       ></Image>
-      <View
-        width="320px"
-        height="28px"
-        position="absolute"
-        top="219px"
-        left="calc(50% - 160px - 0px)"
-        padding="0px 0px 0px 0px"
-        backgroundColor="rgba(217,217,217,1)"
-        label={card?.word}
-        {...getOverrideProps(overrides, "Rectangle 1")}
-      ></View>
       <Flex
         gap="8px"
         position="absolute"
@@ -153,8 +142,8 @@ export default function CardSetEdit(props) {
         position="absolute"
         top="81.68%"
         bottom="0.99%"
-        left="66.88%"
-        right="22.19%"
+        left="81.25%"
+        right="7.81%"
         overflow="hidden"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "delete")}
@@ -178,24 +167,40 @@ export default function CardSetEdit(props) {
           {...getOverrideProps(overrides, "Vector4315")}
         ></Icon>
       </View>
-      <Icon
-        width="25px"
-        height="25px"
-        viewBox={{ minX: 0, minY: 0, width: 25, height: 25 }}
-        paths={[
-          {
-            d: "M19.4444 0L2.77778 0C1.25 0 0 1.25 0 2.77778L0 22.2222C0 23.7639 1.25 25 2.77778 25L12.2361 25C11.6944 24.0833 11.3472 23.0556 11.2083 22C9.02778 21.2639 7.86111 18.8889 8.61111 16.7083C9.18056 15.0417 10.7361 13.8889 12.5 13.8889C13.1111 13.8889 13.7222 14.0278 14.2778 14.2917C17.4583 11.8056 21.9861 11.9306 25 14.6389L25 5.55556L19.4444 0ZM16.6667 8.33333L2.77778 8.33333L2.77778 2.77778L16.6667 2.77778L16.6667 8.33333ZM17.7083 25L13.8889 20.8333L15.5 19.2222L17.7083 21.4306L22.6944 16.4444L24.3056 18.4028L17.7083 25Z",
-            fill: "rgba(0,0,0,1)",
-            fillRule: "nonzero",
-          },
-        ]}
+      <View
+        width="24px"
+        height="24px"
         position="absolute"
-        top="83.66%"
-        bottom="3.96%"
-        left="86.88%"
-        right="5.31%"
-        {...getOverrideProps(overrides, "Vector4317")}
-      ></Icon>
+        top="170px"
+        left="218px"
+        overflow="hidden"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "pencil")}
+      >
+        <Icon
+          width="18.00244140625px"
+          height="18.00250244140625px"
+          viewBox={{
+            minX: 0,
+            minY: 0,
+            width: 18.00244140625,
+            height: 18.00250244140625,
+          }}
+          paths={[
+            {
+              d: "M17.71 4.0425C18.1 3.6525 18.1 3.0025 17.71 2.6325L15.37 0.2925C15 -0.0975 14.35 -0.0975 13.96 0.2925L12.12 2.1225L15.87 5.8725M0 14.2525L0 18.0025L3.75 18.0025L14.81 6.9325L11.06 3.1825L0 14.2525Z",
+              fill: "rgba(0,0,0,1)",
+              fillRule: "nonzero",
+            },
+          ]}
+          position="absolute"
+          top="12.49%"
+          bottom="12.5%"
+          left="12.5%"
+          right="12.49%"
+          {...getOverrideProps(overrides, "Vector867")}
+        ></Icon>
+      </View>
     </View>
   );
 }
