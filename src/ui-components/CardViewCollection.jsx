@@ -6,25 +6,18 @@
 
 /* eslint-disable */
 import React from "react";
+import { Card } from "../models";
 import {
-  createDataStorePredicate,
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import { SortDirection } from "@aws-amplify/datastore";
-import { Card } from "../models";
 import CardView from "./CardView";
 import { Collection } from "@aws-amplify/ui-react";
 export default function CardViewCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
-  const itemsFilterObj = { field: "word", operand: "apple", operator: "eq" };
-  const itemsFilter = createDataStorePredicate(itemsFilterObj);
-  const itemsPagination = { sort: (s) => s.id(SortDirection.ASCENDING) };
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
     model: Card,
-    criteria: itemsFilter,
-    pagination: itemsPagination,
   }).items;
   const items = itemsProp !== undefined ? itemsProp : itemsDataStore;
   return (

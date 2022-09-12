@@ -7,9 +7,9 @@
 /* eslint-disable */
 import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
+import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function CardSetEdit(props) {
-  const { cardset, card, overrides, ...rest } = props;
+  const { cardSet, overrides, ...rest } = props;
   return (
     <View
       width="320px"
@@ -26,66 +26,9 @@ export default function CardSetEdit(props) {
         top="0px"
         left="0px"
         padding="0px 0px 0px 0px"
-        src={cardset?.image_url}
+        src={cardSet?.image_url}
         {...getOverrideProps(overrides, "Image")}
       ></Image>
-      <Flex
-        gap="8px"
-        position="absolute"
-        top="59.9%"
-        bottom="20.3%"
-        left="3.44%"
-        right="41.56%"
-        direction="column"
-        width="176px"
-        padding="0px 114px 0px 0px"
-        {...getOverrideProps(overrides, "TextField")}
-      >
-        <Flex
-          gap="0"
-          direction="column"
-          shrink="0"
-          alignSelf="stretch"
-          objectFit="cover"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "InputGroup")}
-        >
-          <Flex
-            gap="10px"
-            direction="column"
-            width="300px"
-            justifyContent="center"
-            alignItems="center"
-            shrink="0"
-            position="relative"
-            border="1px SOLID rgba(174,179,183,1)"
-            borderRadius="4px"
-            padding="7px 15px 7px 15px"
-            {...getOverrideProps(overrides, "Input")}
-          >
-            <Text
-              fontFamily="Inter"
-              fontSize="16px"
-              fontWeight="400"
-              color="rgba(128,128,128,1)"
-              lineHeight="24px"
-              textAlign="left"
-              display="flex"
-              direction="column"
-              justifyContent="flex-start"
-              shrink="0"
-              alignSelf="stretch"
-              objectFit="cover"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              whiteSpace="pre-wrap"
-              children={cardset?.name}
-              {...getOverrideProps(overrides, "placeholder")}
-            ></Text>
-          </Flex>
-        </Flex>
-      </Flex>
       <Icon
         width="35px"
         height="35px"
@@ -102,26 +45,26 @@ export default function CardSetEdit(props) {
         bottom="82.67%"
         left="89.06%"
         right="0%"
-        {...getOverrideProps(overrides, "Vector438")}
+        {...getOverrideProps(overrides, "Vector34462720")}
       ></Icon>
       <View
         position="absolute"
         top="81.19%"
         bottom="1.49%"
-        left="51.25%"
-        right="37.81%"
+        left="56.56%"
+        right="32.5%"
         overflow="hidden"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "play")}
       >
         <Icon
-          width="16.0416259765625px"
-          height="20.416656494140625px"
+          width="16.041656494140625px"
+          height="20.416671752929688px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 16.0416259765625,
-            height: 20.416656494140625,
+            width: 16.041656494140625,
+            height: 20.416671752929688,
           }}
           paths={[
             {
@@ -135,23 +78,28 @@ export default function CardSetEdit(props) {
           bottom="20.25%"
           left="33.33%"
           right="20.83%"
-          {...getOverrideProps(overrides, "Vector4313")}
+          {...getOverrideProps(overrides, "Vector34462722")}
         ></Icon>
       </View>
       <View
         position="absolute"
         top="81.68%"
         bottom="0.99%"
-        left="81.25%"
-        right="7.81%"
+        left="86.56%"
+        right="2.5%"
         overflow="hidden"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "delete")}
       >
         <Icon
-          width="20.4166259765625px"
+          width="20.416656494140625px"
           height="26.25px"
-          viewBox={{ minX: 0, minY: 0, width: 20.4166259765625, height: 26.25 }}
+          viewBox={{
+            minX: 0,
+            minY: 0,
+            width: 20.416656494140625,
+            height: 26.25,
+          }}
           paths={[
             {
               d: "M20.4167 1.45833L15.3125 1.45833L13.8542 0L6.5625 0L5.10417 1.45833L0 1.45833L0 4.375L20.4167 4.375M1.45833 23.3333C1.45833 24.1069 1.76562 24.8487 2.31261 25.3957C2.85959 25.9427 3.60145 26.25 4.375 26.25L16.0417 26.25C16.8152 26.25 17.5571 25.9427 18.1041 25.3957C18.651 24.8487 18.9583 24.1069 18.9583 23.3333L18.9583 5.83333L1.45833 5.83333L1.45833 23.3333Z",
@@ -164,7 +112,7 @@ export default function CardSetEdit(props) {
           bottom="12.5%"
           left="20.83%"
           right="20.83%"
-          {...getOverrideProps(overrides, "Vector4315")}
+          {...getOverrideProps(overrides, "Vector34462724")}
         ></Icon>
       </View>
       <View
@@ -172,18 +120,18 @@ export default function CardSetEdit(props) {
         height="24px"
         position="absolute"
         top="170px"
-        left="218px"
+        left="235px"
         overflow="hidden"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "pencil")}
       >
         <Icon
-          width="18.00244140625px"
+          width="18.00250244140625px"
           height="18.00250244140625px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 18.00244140625,
+            width: 18.00250244140625,
             height: 18.00250244140625,
           }}
           paths={[
@@ -198,9 +146,29 @@ export default function CardSetEdit(props) {
           bottom="12.5%"
           left="12.5%"
           right="12.49%"
-          {...getOverrideProps(overrides, "Vector867")}
+          {...getOverrideProps(overrides, "Vector34462726")}
         ></Icon>
       </View>
+      <Text
+        fontFamily="Inter"
+        fontSize="32px"
+        fontWeight="400"
+        color="rgba(0,0,0,1)"
+        lineHeight="24px"
+        textAlign="left"
+        display="flex"
+        direction="column"
+        justifyContent="flex-start"
+        position="absolute"
+        top="59.9%"
+        bottom="28.22%"
+        left="4.69%"
+        right="9.38%"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children={cardSet?.name}
+        {...getOverrideProps(overrides, "Fruits")}
+      ></Text>
     </View>
   );
 }

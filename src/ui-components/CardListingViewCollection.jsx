@@ -6,26 +6,19 @@
 
 /* eslint-disable */
 import React from "react";
-import { Card, CardSet } from "../models";
+import { Card } from "../models";
 import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import CardSetView from "./CardSetView";
+import CardListingView from "./CardListingView";
 import { Collection } from "@aws-amplify/ui-react";
-export default function CardSetViewCollection(props) {
+export default function CardListingViewCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
-  const cardItems = useDataStoreBinding({
+  const itemsDataStore = useDataStoreBinding({
     type: "collection",
     model: Card,
   }).items;
-  const itemsDataStore = useDataStoreBinding({
-    type: "collection",
-    model: CardSet,
-  }).items.map((item) => ({
-    ...item,
-    Cards: cardItems.filter((model) => model.cardsetID === item.id),
-  }));
   const items = itemsProp !== undefined ? itemsProp : itemsDataStore;
   return (
     <Collection
@@ -34,14 +27,14 @@ export default function CardSetViewCollection(props) {
       justifyContent="stretch"
       items={items || []}
       {...rest}
-      {...getOverrideProps(overrides, "CardSetViewCollection")}
+      {...getOverrideProps(overrides, "CardListingViewCollection")}
     >
       {(item, index) => (
-        <CardSetView
-          cardSet={item}
+        <CardListingView
+          card={item}
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></CardSetView>
+        ></CardListingView>
       )}
     </Collection>
   );

@@ -15,20 +15,19 @@ import { CardSet } from "../models";
 import { schema } from "../models/schema";
 import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function CardSetView(props) {
-  const { cardset, overrides, ...rest } = props;
+  const { cardSet, overrides, ...rest } = props;
   const deleteOnClick = useDataStoreDeleteAction({
-    id: cardset?.id,
-    model: CardSet,
-    schema: schema,
-  });
-  const vectorFourThreeTwoEightOnClick = useDataStoreDeleteAction({
-    id: cardset?.id,
+    id: cardSet?.id,
     model: CardSet,
     schema: schema,
   });
   const playOnClick = useNavigateAction({
     type: "url",
-    url: `${"practice/"}${cardset?.id}`,
+    url: `${"practice/"}${cardSet?.id}`,
+  });
+  const pencilOnClick = useNavigateAction({
+    type: "url",
+    url: `${"edit/"}${cardSet?.id}`,
   });
   return (
     <View
@@ -57,7 +56,7 @@ export default function CardSetView(props) {
         right="0%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children={cardset?.name}
+        children={cardSet?.name}
         {...getOverrideProps(overrides, "Name")}
       ></Text>
       <View
@@ -74,9 +73,14 @@ export default function CardSetView(props) {
         {...getOverrideProps(overrides, "Delete")}
       >
         <Icon
-          width="12.8333740234375px"
+          width="12.833335876464844px"
           height="16.5px"
-          viewBox={{ minX: 0, minY: 0, width: 12.8333740234375, height: 16.5 }}
+          viewBox={{
+            minX: 0,
+            minY: 0,
+            width: 12.833335876464844,
+            height: 16.5,
+          }}
           paths={[
             {
               d: "M12.8333 0.916667L9.625 0.916667L8.70833 0L4.125 0L3.20833 0.916667L0 0.916667L0 2.75L12.8333 2.75M0.916667 14.6667C0.916667 15.1529 1.10982 15.6192 1.45364 15.963C1.79745 16.3068 2.26377 16.5 2.75 16.5L10.0833 16.5C10.5696 16.5 11.0359 16.3068 11.3797 15.963C11.7235 15.6192 11.9167 15.1529 11.9167 14.6667L11.9167 3.66667L0.916667 3.66667L0.916667 14.6667Z",
@@ -89,10 +93,7 @@ export default function CardSetView(props) {
           bottom="12.5%"
           left="20.83%"
           right="20.83%"
-          onClick={() => {
-            vectorFourThreeTwoEightOnClick();
-          }}
-          {...getOverrideProps(overrides, "Vector4328")}
+          {...getOverrideProps(overrides, "Vector34462703")}
         ></Icon>
       </View>
       <Image
@@ -102,7 +103,7 @@ export default function CardSetView(props) {
         top="0px"
         left="0px"
         padding="0px 0px 0px 0px"
-        src={cardset?.image_url}
+        src={cardSet?.image_url}
         {...getOverrideProps(overrides, "Image")}
       ></Image>
       <View
@@ -119,13 +120,13 @@ export default function CardSetView(props) {
         {...getOverrideProps(overrides, "play")}
       >
         <Icon
-          width="13.2916259765625px"
-          height="16.916656494140625px"
+          width="13.291667938232422px"
+          height="16.916671752929688px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 13.2916259765625,
-            height: 16.916656494140625,
+            width: 13.291667938232422,
+            height: 16.916671752929688,
           }}
           paths={[
             {
@@ -139,7 +140,7 @@ export default function CardSetView(props) {
           bottom="20.25%"
           left="33.33%"
           right="20.83%"
-          {...getOverrideProps(overrides, "Vector775")}
+          {...getOverrideProps(overrides, "Vector34462706")}
         ></Icon>
       </View>
       <View
@@ -150,15 +151,18 @@ export default function CardSetView(props) {
         left="206px"
         overflow="hidden"
         padding="0px 0px 0px 0px"
+        onClick={() => {
+          pencilOnClick();
+        }}
         {...getOverrideProps(overrides, "pencil")}
       >
         <Icon
-          width="18.00244140625px"
+          width="18.002498626708984px"
           height="18.00250244140625px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 18.00244140625,
+            width: 18.002498626708984,
             height: 18.00250244140625,
           }}
           paths={[
@@ -173,7 +177,7 @@ export default function CardSetView(props) {
           bottom="12.5%"
           left="12.5%"
           right="12.49%"
-          {...getOverrideProps(overrides, "Vector863")}
+          {...getOverrideProps(overrides, "Vector34462708")}
         ></Icon>
       </View>
     </View>

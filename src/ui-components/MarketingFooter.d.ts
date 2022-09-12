@@ -6,11 +6,8 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { CardSet } from "../models";
 import { ViewProps } from "@aws-amplify/ui-react";
-export declare type CardSetViewProps = React.PropsWithChildren<Partial<ViewProps> & {
-    cardSet?: CardSet;
-} & {
+export declare type MarketingFooterProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function CardSetView(props: CardSetViewProps): React.ReactElement;
+export default function MarketingFooter(props: MarketingFooterProps): React.ReactElement;

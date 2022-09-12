@@ -6,11 +6,15 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { CardSet } from "../models";
-import { ViewProps } from "@aws-amplify/ui-react";
-export declare type CardSetViewProps = React.PropsWithChildren<Partial<ViewProps> & {
-    cardSet?: CardSet;
+import { CardListingViewProps } from "./CardListingView";
+import { CollectionProps } from "@aws-amplify/ui-react";
+export declare type CardListingViewCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+    items?: any[];
+    overrideItems?: (collectionItem: {
+        item: any;
+        index: number;
+    }) => CardListingViewProps;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function CardSetView(props: CardSetViewProps): React.ReactElement;
+export default function CardListingViewCollection(props: CardListingViewCollectionProps): React.ReactElement;

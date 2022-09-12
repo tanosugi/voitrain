@@ -1,12 +1,12 @@
 import { AmazonAIPredictionsProvider } from "@aws-amplify/predictions";
 import { Authenticator, Flex, View } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import Amplify, { DataStore, Predictions, SortDirection } from "aws-amplify";
+import Amplify, { Predictions } from "aws-amplify";
 import mic from "microphone-stream";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import awsExports from "../../../src/aws-exports";
-import { Card } from "../../../src/models";
+import useQueryCardsFromCardSetId from "../../../src/hooks/useQueryCardsFromCardSetId";
 import CardViewCollection from "../../../src/ui-components/CardViewCollection";
 
 Amplify.configure(awsExports);
@@ -15,6 +15,7 @@ Amplify.addPluggable(new AmazonAIPredictionsProvider());
 const Home = () => {
   const router = useRouter();
   const { cardSetId } = router.query;
+  const { cards } = useQueryCardsFromCardSetId(cardSetId);
   const [wordInData, setWordInData] = useState("");
   const [response, setResponse] = useState("_ _ _ _");
   const [isRecording, setIsRecording] = useState(false);
@@ -108,24 +109,6 @@ const Home = () => {
         setResponse(JSON.stringify(err, null, 2));
       });
   }
-  const [cards, setCards] = useState();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const fetchCards = async () => {
-    if (cardSetId) {
-      const respCards = await DataStore.query(
-        Card,
-        (c) => c.cardsetID("eq", cardSetId),
-        {
-          sort: (s) => s.updatedAt(SortDirection.DESCENDING),
-        }
-      );
-      setCards(respCards);
-    }
-  };
-  useEffect(() => {
-    fetchCards();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cardSetId]);
   return (
     <Authenticator>
       <Flex

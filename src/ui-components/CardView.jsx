@@ -83,13 +83,13 @@ export default function CardView(props) {
         {...getOverrideProps(overrides, "Microphone")}
       >
         <Icon
-          width="20.4166259765625px"
-          height="27.708335876464844px"
+          width="20.41668701171875px"
+          height="27.708343505859375px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 20.4166259765625,
-            height: 27.708335876464844,
+            width: 20.41668701171875,
+            height: 27.708343505859375,
           }}
           paths={[
             {
@@ -103,7 +103,7 @@ export default function CardView(props) {
           bottom="12.5%"
           left="20.83%"
           right="20.83%"
-          {...getOverrideProps(overrides, "Vector753")}
+          {...getOverrideProps(overrides, "Vector34462696")}
         ></Icon>
       </View>
       <View
@@ -137,7 +137,7 @@ export default function CardView(props) {
           bottom="13.46%"
           left="12.5%"
           right="12.5%"
-          {...getOverrideProps(overrides, "Vector773")}
+          {...getOverrideProps(overrides, "Vector34462698")}
         ></Icon>
       </View>
     </View>

@@ -5,12 +5,11 @@
  **************************************************************************/
 
 import React from "react";
-import { Card, CardSet } from "../models";
+import { CardSet } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
 export declare type CardSetEditProps = React.PropsWithChildren<Partial<ViewProps> & {
-    cardset?: CardSet;
-    card?: Card;
+    cardSet?: CardSet;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
