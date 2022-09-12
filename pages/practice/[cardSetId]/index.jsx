@@ -1,16 +1,10 @@
-import { DataStore } from 'aws-amplify';
-import { SortDirection } from "@aws-amplify/datastore";
 import { AmazonAIPredictionsProvider } from "@aws-amplify/predictions";
 import { Authenticator, Flex, View } from "@aws-amplify/ui-react";
-import {
-  createDataStorePredicate,
-  useDataStoreBinding,
-} from "@aws-amplify/ui-react/internal";
 import "@aws-amplify/ui-react/styles.css";
-import Amplify, { Predictions } from "aws-amplify";
+import Amplify, { DataStore, Predictions, SortDirection } from "aws-amplify";
 import mic from "microphone-stream";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import awsExports from "../../../src/aws-exports";
 import { Card } from "../../../src/models";
 import CardViewCollection from "../../../src/ui-components/CardViewCollection";
@@ -21,8 +15,6 @@ Amplify.addPluggable(new AmazonAIPredictionsProvider());
 const Home = () => {
   const router = useRouter();
   const { cardSetId } = router.query;
-  // console.log(cardSetId);
-
   const [wordInData, setWordInData] = useState("");
   const [response, setResponse] = useState("_ _ _ _");
   const [isRecording, setIsRecording] = useState(false);
@@ -110,14 +102,30 @@ const Home = () => {
           audio.play();
         }
         console.log(fullText);
-        // console.log(["fullText", fullText]);
       })
       .catch((err) => {
         console.error(["err", err]);
         setResponse(JSON.stringify(err, null, 2));
       });
   }
-  console.log(cardSetId);
+  const [cards, setCards] = useState();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const fetchCards = async () => {
+    if (cardSetId) {
+      const respCards = await DataStore.query(
+        Card,
+        (c) => c.cardsetID("eq", cardSetId),
+        {
+          sort: (s) => s.updatedAt(SortDirection.DESCENDING),
+        }
+      );
+      setCards(respCards);
+    }
+  };
+  useEffect(() => {
+    fetchCards();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cardSetId]);
   return (
     <Authenticator>
       <Flex
@@ -130,19 +138,7 @@ const Home = () => {
       >
         <View>
           <CardViewCollection
-            items={
-              useDataStoreBinding({
-                type: "collection",
-                model: Card,
-                criteria: createDataStorePredicate({
-                  field: "cardsetID",
-                  operand: "b3cba41e-43c0-4b33-b6b0-68bc8b211bda",
-                  // operand: cardSetId,
-                  operator: "eq",
-                }),
-                pagination: { sort: (s) => s.id(SortDirection.ASCENDING) },
-              }).items
-            }
+            items={cards}
             overrides={{ "Text Group": { fontWeight: "bold" } }}
             overrideItems={({ item, index }) => ({
               backgroundColor: index % 2 === 0 ? "white" : "lightgray",
