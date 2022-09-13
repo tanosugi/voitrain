@@ -6,7 +6,14 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useDataStoreUpdateAction,
+  useStateMutationAction,
+} from "@aws-amplify/ui-react/internal";
+import { Card } from "../models";
+import { schema } from "../models/schema";
+import { useEffect } from "react";
 import {
   Button,
   Divider,
@@ -18,7 +25,53 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function EditProfile(props) {
-  const { overrides, ...rest } = props;
+  const { card, overrides, ...rest } = props;
+  const [
+    textFieldTwoNineSevenSixSixNineTwoTwoValue,
+    setTextFieldTwoNineSevenSixSixNineTwoTwoValue,
+  ] = useStateMutationAction("");
+  const [
+    textFieldTwoNineSevenSixSixNineTwoThreeValue,
+    setTextFieldTwoNineSevenSixSixNineTwoThreeValue,
+  ] = useStateMutationAction("");
+  const [
+    textFieldTwoNineSevenSixSixNineTwoFourValue,
+    setTextFieldTwoNineSevenSixSixNineTwoFourValue,
+  ] = useStateMutationAction("");
+  const buttonOnClick = useDataStoreUpdateAction({
+    fields: {
+      word: textFieldTwoNineSevenSixSixNineTwoTwoValue,
+      image_url: textFieldTwoNineSevenSixSixNineTwoThreeValue,
+      cardsetID: textFieldTwoNineSevenSixSixNineTwoFourValue,
+    },
+    id: card?.id,
+    model: Card,
+    schema: schema,
+  });
+  useEffect(() => {
+    if (
+      textFieldTwoNineSevenSixSixNineTwoTwoValue === "" &&
+      card !== undefined &&
+      card?.word !== undefined
+    )
+      setTextFieldTwoNineSevenSixSixNineTwoTwoValue(card?.word);
+  }, [card]);
+  useEffect(() => {
+    if (
+      textFieldTwoNineSevenSixSixNineTwoThreeValue === "" &&
+      card !== undefined &&
+      card?.image_url !== undefined
+    )
+      setTextFieldTwoNineSevenSixSixNineTwoThreeValue(card?.image_url);
+  }, [card]);
+  useEffect(() => {
+    if (
+      textFieldTwoNineSevenSixSixNineTwoFourValue === "" &&
+      card !== undefined &&
+      card?.cardsetID !== undefined
+    )
+      setTextFieldTwoNineSevenSixSixNineTwoFourValue(card?.cardsetID);
+  }, [card]);
   return (
     <Flex
       gap="16px"
@@ -171,6 +224,10 @@ export default function EditProfile(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldTwoNineSevenSixSixNineTwoTwoValue}
+            onChange={(event) => {
+              setTextFieldTwoNineSevenSixSixNineTwoTwoValue(event.target.value);
+            }}
             {...getOverrideProps(overrides, "TextField29766922")}
           ></TextField>
           <TextField
@@ -189,6 +246,12 @@ export default function EditProfile(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldTwoNineSevenSixSixNineTwoThreeValue}
+            onChange={(event) => {
+              setTextFieldTwoNineSevenSixSixNineTwoThreeValue(
+                event.target.value
+              );
+            }}
             {...getOverrideProps(overrides, "TextField29766923")}
           ></TextField>
           <TextField
@@ -207,6 +270,12 @@ export default function EditProfile(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldTwoNineSevenSixSixNineTwoFourValue}
+            onChange={(event) => {
+              setTextFieldTwoNineSevenSixSixNineTwoFourValue(
+                event.target.value
+              );
+            }}
             {...getOverrideProps(overrides, "TextField29766924")}
           ></TextField>
         </Flex>
@@ -233,6 +302,9 @@ export default function EditProfile(props) {
           isDisabled={false}
           variation="primary"
           children="Save"
+          onClick={() => {
+            buttonOnClick();
+          }}
           {...getOverrideProps(overrides, "Button")}
         ></Button>
       </Flex>

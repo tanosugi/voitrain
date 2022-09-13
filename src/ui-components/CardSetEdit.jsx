@@ -167,7 +167,7 @@ export default function CardSetEdit(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={cardSet?.name}
-        {...getOverrideProps(overrides, "Fruits")}
+        {...getOverrideProps(overrides, "placeholder")}
       ></Text>
     </View>
   );

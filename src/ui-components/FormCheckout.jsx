@@ -14,8 +14,8 @@ import {
   Flex,
   Text,
   TextField,
+  View,
 } from "@aws-amplify/ui-react";
-import MyIcon from "./MyIcon";
 export default function FormCheckout(props) {
   const { overrides, ...rest } = props;
   return (
@@ -252,16 +252,15 @@ export default function FormCheckout(props) {
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Frame 31329767067")}
         >
-          <MyIcon
+          <View
             width="24px"
             height="24px"
             shrink="0"
             overflow="hidden"
             position="relative"
             padding="0px 0px 0px 0px"
-            type="shopping_bag"
             {...getOverrideProps(overrides, "MyIcon")}
-          ></MyIcon>
+          ></View>
           <Text
             fontFamily="Inter"
             fontSize="16px"
