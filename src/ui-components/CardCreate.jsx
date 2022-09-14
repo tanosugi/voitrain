@@ -6,10 +6,62 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useDataStoreCreateAction,
+  useStateMutationAction,
+} from "@aws-amplify/ui-react/internal";
+import { Card } from "../models";
+import { schema } from "../models/schema";
+import { useEffect } from "react";
 import { Icon, Image, TextField, View } from "@aws-amplify/ui-react";
-export default function CardSetEdit(props) {
-  const { overrides, ...rest } = props;
+export default function CardCreate(props) {
+  const { card, overrides, ...rest } = props;
+  const [
+    textFieldThreeFiveSixTwoTwoFiveSevenThreeValue,
+    setTextFieldThreeFiveSixTwoTwoFiveSevenThreeValue,
+  ] = useStateMutationAction("");
+  const [
+    textFieldThreeFiveSixTwoTwoSixThreeSixValue,
+    setTextFieldThreeFiveSixTwoTwoSixThreeSixValue,
+  ] = useStateMutationAction("");
+  const [
+    textFieldThreeFiveSixTwoTwoSixFourNineValue,
+    setTextFieldThreeFiveSixTwoTwoSixFourNineValue,
+  ] = useStateMutationAction("");
+  const contentsaveOnClick = useDataStoreCreateAction({
+    fields: {
+      word: textFieldThreeFiveSixTwoTwoFiveSevenThreeValue,
+      image_url: textFieldThreeFiveSixTwoTwoSixThreeSixValue,
+      cardsetID: textFieldThreeFiveSixTwoTwoSixFourNineValue,
+    },
+    model: Card,
+    schema: schema,
+  });
+  useEffect(() => {
+    if (
+      textFieldThreeFiveSixTwoTwoFiveSevenThreeValue === "" &&
+      card !== undefined &&
+      card?.word !== undefined
+    )
+      setTextFieldThreeFiveSixTwoTwoFiveSevenThreeValue(card?.word);
+  }, [card]);
+  useEffect(() => {
+    if (
+      textFieldThreeFiveSixTwoTwoSixThreeSixValue === "" &&
+      card !== undefined &&
+      card?.image_url !== undefined
+    )
+      setTextFieldThreeFiveSixTwoTwoSixThreeSixValue(card?.image_url);
+  }, [card]);
+  useEffect(() => {
+    if (
+      textFieldThreeFiveSixTwoTwoSixFourNineValue === "" &&
+      card !== undefined &&
+      card?.cardsetID !== undefined
+    )
+      setTextFieldThreeFiveSixTwoTwoSixFourNineValue(card?.cardsetID);
+  }, [card]);
   return (
     <View
       width="235px"
@@ -17,7 +69,7 @@ export default function CardSetEdit(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       {...rest}
-      {...getOverrideProps(overrides, "CardSetEdit")}
+      {...getOverrideProps(overrides, "CardCreate")}
     >
       <TextField
         display="flex"
@@ -31,13 +83,17 @@ export default function CardSetEdit(props) {
         width="235px"
         justifyContent="center"
         padding="0px 0px 0px 0px"
-        label="Card Set Name"
-        placeholder="John Doe"
+        label="Word"
+        placeholder="Please Input"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField")}
+        value={textFieldThreeFiveSixTwoTwoFiveSevenThreeValue}
+        onChange={(event) => {
+          setTextFieldThreeFiveSixTwoTwoFiveSevenThreeValue(event.target.value);
+        }}
+        {...getOverrideProps(overrides, "TextField35622573")}
       ></TextField>
       <View
         position="absolute"
@@ -47,6 +103,9 @@ export default function CardSetEdit(props) {
         right="0%"
         overflow="hidden"
         padding="0px 0px 0px 0px"
+        onClick={() => {
+          contentsaveOnClick();
+        }}
         {...getOverrideProps(overrides, "content-save")}
       >
         <Icon
@@ -65,7 +124,7 @@ export default function CardSetEdit(props) {
           bottom="12.5%"
           left="12.5%"
           right="12.5%"
-          {...getOverrideProps(overrides, "Vector35562547")}
+          {...getOverrideProps(overrides, "Vector35622575")}
         ></Icon>
       </View>
       <Image
@@ -77,6 +136,7 @@ export default function CardSetEdit(props) {
         right="14.47%"
         width="71.06%"
         padding="0px 0px 0px 0px"
+        src={card?.image_url}
         {...getOverrideProps(overrides, "Image")}
       ></Image>
       <View
@@ -110,7 +170,7 @@ export default function CardSetEdit(props) {
           bottom="16.67%"
           left="16.67%"
           right="16.67%"
-          {...getOverrideProps(overrides, "Vector35562553")}
+          {...getOverrideProps(overrides, "Vector35622578")}
         ></Icon>
       </View>
       <View
@@ -138,63 +198,55 @@ export default function CardSetEdit(props) {
           bottom="0%"
           left="0%"
           right="0%"
-          {...getOverrideProps(overrides, "Vector35562550")}
+          {...getOverrideProps(overrides, "Vector35622580")}
         ></Icon>
       </View>
-      <Icon
-        width="35px"
-        height="35px"
-        viewBox={{ minX: 0, minY: 0, width: 35, height: 35 }}
-        paths={[
-          {
-            d: "M17.5 0C7.8225 0 0 7.8225 0 17.5C0 27.1775 7.8225 35 17.5 35C27.1775 35 35 27.1775 35 17.5C35 7.8225 27.1775 0 17.5 0ZM26.25 23.7825L23.7825 26.25L17.5 19.9675L11.2175 26.25L8.75 23.7825L15.0325 17.5L8.75 11.2175L11.2175 8.75L17.5 15.0325L23.7825 8.75L26.25 11.2175L19.9675 17.5L26.25 23.7825Z",
-            fill: "rgba(0,0,0,1)",
-            fillRule: "nonzero",
-          },
-        ]}
+      <TextField
+        display="flex"
+        gap="8px"
         position="absolute"
-        top="1.46%"
-        bottom="90.02%"
-        left="62.55%"
-        right="22.55%"
-        {...getOverrideProps(overrides, "Vector35602505")}
-      ></Icon>
-      <Icon
-        width="35px"
-        height="35px"
-        viewBox={{ minX: 0, minY: 0, width: 35, height: 35 }}
-        paths={[
-          {
-            d: "M17.5 0C7.8225 0 0 7.8225 0 17.5C0 27.1775 7.8225 35 17.5 35C27.1775 35 35 27.1775 35 17.5C35 7.8225 27.1775 0 17.5 0ZM26.25 23.7825L23.7825 26.25L17.5 19.9675L11.2175 26.25L8.75 23.7825L15.0325 17.5L8.75 11.2175L11.2175 8.75L17.5 15.0325L23.7825 8.75L26.25 11.2175L19.9675 17.5L26.25 23.7825Z",
-            fill: "rgba(0,0,0,1)",
-            fillRule: "nonzero",
-          },
-        ]}
+        top="103.65%"
+        bottom="-13.38%"
+        left="0%"
+        right="0%"
+        direction="column"
+        width="235px"
+        padding="0px 0px 0px 0px"
+        label="Word"
+        placeholder="Please Input"
+        size="default"
+        isDisabled={false}
+        labelHidden={true}
+        variation="default"
+        value={textFieldThreeFiveSixTwoTwoSixThreeSixValue}
+        onChange={(event) => {
+          setTextFieldThreeFiveSixTwoTwoSixThreeSixValue(event.target.value);
+        }}
+        {...getOverrideProps(overrides, "TextField35622636")}
+      ></TextField>
+      <TextField
+        display="flex"
+        gap="8px"
         position="absolute"
-        top="5.84%"
-        bottom="85.64%"
-        left="21.7%"
-        right="63.4%"
-        {...getOverrideProps(overrides, "Vector35602506")}
-      ></Icon>
-      <Icon
-        width="35px"
-        height="35px"
-        viewBox={{ minX: 0, minY: 0, width: 35, height: 35 }}
-        paths={[
-          {
-            d: "M17.5 0C7.8225 0 0 7.8225 0 17.5C0 27.1775 7.8225 35 17.5 35C27.1775 35 35 27.1775 35 17.5C35 7.8225 27.1775 0 17.5 0ZM26.25 23.7825L23.7825 26.25L17.5 19.9675L11.2175 26.25L8.75 23.7825L15.0325 17.5L8.75 11.2175L11.2175 8.75L17.5 15.0325L23.7825 8.75L26.25 11.2175L19.9675 17.5L26.25 23.7825Z",
-            fill: "rgba(0,0,0,1)",
-            fillRule: "nonzero",
-          },
-        ]}
-        position="absolute"
-        top="1.7%"
-        bottom="89.78%"
-        left="42.55%"
-        right="42.55%"
-        {...getOverrideProps(overrides, "Vector35602507")}
-      ></Icon>
+        top="117.03%"
+        bottom="-26.76%"
+        left="0%"
+        right="0%"
+        direction="column"
+        width="235px"
+        padding="0px 0px 0px 0px"
+        label="Word"
+        placeholder="Please Input"
+        size="default"
+        isDisabled={false}
+        labelHidden={true}
+        variation="default"
+        value={textFieldThreeFiveSixTwoTwoSixFourNineValue}
+        onChange={(event) => {
+          setTextFieldThreeFiveSixTwoTwoSixFourNineValue(event.target.value);
+        }}
+        {...getOverrideProps(overrides, "TextField35622649")}
+      ></TextField>
     </View>
   );
 }

@@ -30,6 +30,8 @@ export default function CardSetViewCollection(props) {
   return (
     <Collection
       type="list"
+      isPaginated={true}
+      searchPlaceholder="Search..."
       direction="column"
       justifyContent="stretch"
       items={items || []}

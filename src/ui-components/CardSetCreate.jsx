@@ -8,7 +8,7 @@
 import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Icon, Image, TextField, View } from "@aws-amplify/ui-react";
-export default function CardSetEdit(props) {
+export default function CardSetCreate(props) {
   const { overrides, ...rest } = props;
   return (
     <View
@@ -17,7 +17,7 @@ export default function CardSetEdit(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       {...rest}
-      {...getOverrideProps(overrides, "CardSetEdit")}
+      {...getOverrideProps(overrides, "CardSetCreate")}
     >
       <TextField
         display="flex"
@@ -32,7 +32,7 @@ export default function CardSetEdit(props) {
         justifyContent="center"
         padding="0px 0px 0px 0px"
         label="Card Set Name"
-        placeholder="John Doe"
+        placeholder="Please Input"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -80,40 +80,6 @@ export default function CardSetEdit(props) {
         {...getOverrideProps(overrides, "Image")}
       ></Image>
       <View
-        position="absolute"
-        top="48.91%"
-        bottom="35.52%"
-        left="36.6%"
-        right="36.17%"
-        overflow="hidden"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "refresh")}
-      >
-        <Icon
-          width="42.66668701171875px"
-          height="42.66666793823242px"
-          viewBox={{
-            minX: 0,
-            minY: 0,
-            width: 42.66668701171875,
-            height: 42.66666793823242,
-          }}
-          paths={[
-            {
-              d: "M36.4 6.26667C32.5333 2.4 27.2267 0 21.3333 0C15.6754 4.73695e-15 10.2492 2.24761 6.24839 6.24839C2.24761 10.2492 7.10543e-15 15.6754 0 21.3333C7.10543e-15 26.9913 2.24761 32.4175 6.24839 36.4183C10.2492 40.4191 15.6754 42.6667 21.3333 42.6667C31.28 42.6667 39.5733 35.8667 41.9467 26.6667L36.4 26.6667C34.2133 32.88 28.2933 37.3333 21.3333 37.3333C17.0899 37.3333 13.0202 35.6476 10.0196 32.647C7.01904 29.6465 5.33333 25.5768 5.33333 21.3333C5.33333 17.0899 7.01904 13.0202 10.0196 10.0196C13.0202 7.01904 17.0899 5.33333 21.3333 5.33333C25.76 5.33333 29.7067 7.17333 32.5867 10.08L24 18.6667L42.6667 18.6667L42.6667 0L36.4 6.26667Z",
-              fill: "rgba(0,0,0,1)",
-              fillRule: "nonzero",
-            },
-          ]}
-          position="absolute"
-          top="16.67%"
-          bottom="16.67%"
-          left="16.67%"
-          right="16.67%"
-          {...getOverrideProps(overrides, "Vector35562553")}
-        ></Icon>
-      </View>
-      <View
         width="35px"
         height="35px"
         position="absolute"
@@ -141,60 +107,6 @@ export default function CardSetEdit(props) {
           {...getOverrideProps(overrides, "Vector35562550")}
         ></Icon>
       </View>
-      <Icon
-        width="35px"
-        height="35px"
-        viewBox={{ minX: 0, minY: 0, width: 35, height: 35 }}
-        paths={[
-          {
-            d: "M17.5 0C7.8225 0 0 7.8225 0 17.5C0 27.1775 7.8225 35 17.5 35C27.1775 35 35 27.1775 35 17.5C35 7.8225 27.1775 0 17.5 0ZM26.25 23.7825L23.7825 26.25L17.5 19.9675L11.2175 26.25L8.75 23.7825L15.0325 17.5L8.75 11.2175L11.2175 8.75L17.5 15.0325L23.7825 8.75L26.25 11.2175L19.9675 17.5L26.25 23.7825Z",
-            fill: "rgba(0,0,0,1)",
-            fillRule: "nonzero",
-          },
-        ]}
-        position="absolute"
-        top="1.46%"
-        bottom="90.02%"
-        left="62.55%"
-        right="22.55%"
-        {...getOverrideProps(overrides, "Vector35602505")}
-      ></Icon>
-      <Icon
-        width="35px"
-        height="35px"
-        viewBox={{ minX: 0, minY: 0, width: 35, height: 35 }}
-        paths={[
-          {
-            d: "M17.5 0C7.8225 0 0 7.8225 0 17.5C0 27.1775 7.8225 35 17.5 35C27.1775 35 35 27.1775 35 17.5C35 7.8225 27.1775 0 17.5 0ZM26.25 23.7825L23.7825 26.25L17.5 19.9675L11.2175 26.25L8.75 23.7825L15.0325 17.5L8.75 11.2175L11.2175 8.75L17.5 15.0325L23.7825 8.75L26.25 11.2175L19.9675 17.5L26.25 23.7825Z",
-            fill: "rgba(0,0,0,1)",
-            fillRule: "nonzero",
-          },
-        ]}
-        position="absolute"
-        top="5.84%"
-        bottom="85.64%"
-        left="21.7%"
-        right="63.4%"
-        {...getOverrideProps(overrides, "Vector35602506")}
-      ></Icon>
-      <Icon
-        width="35px"
-        height="35px"
-        viewBox={{ minX: 0, minY: 0, width: 35, height: 35 }}
-        paths={[
-          {
-            d: "M17.5 0C7.8225 0 0 7.8225 0 17.5C0 27.1775 7.8225 35 17.5 35C27.1775 35 35 27.1775 35 17.5C35 7.8225 27.1775 0 17.5 0ZM26.25 23.7825L23.7825 26.25L17.5 19.9675L11.2175 26.25L8.75 23.7825L15.0325 17.5L8.75 11.2175L11.2175 8.75L17.5 15.0325L23.7825 8.75L26.25 11.2175L19.9675 17.5L26.25 23.7825Z",
-            fill: "rgba(0,0,0,1)",
-            fillRule: "nonzero",
-          },
-        ]}
-        position="absolute"
-        top="1.7%"
-        bottom="89.78%"
-        left="42.55%"
-        right="42.55%"
-        {...getOverrideProps(overrides, "Vector35602507")}
-      ></Icon>
     </View>
   );
 }

@@ -1,14 +1,13 @@
 {
-    "resourceName": "speechGenerator858518b1",
-    "convertPolicyName": "speechGeneratorPolicy858518b1",
+    "resourceName": "transcription7ec01d63",
+    "convertPolicyName": "transcriptionPolicy7ec01d63",
     "authRoleName": {
         "Ref": "AuthRoleName"
     },
     "unauthRoleName": {
         "Ref": "UnauthRoleName"
     },
-    "convertType": "speechGenerator",
+    "convertType": "transcription",
     "language": "en-US",
-    "voice": "Kevin",
     "access": "auth"
 }

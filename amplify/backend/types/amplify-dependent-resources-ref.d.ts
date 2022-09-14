@@ -1,4 +1,11 @@
 export type AmplifyDependentResourcesAttributes = {
+    "api": {
+        "voitrain": {
+            "GraphQLAPIKeyOutput": "string",
+            "GraphQLAPIIdOutput": "string",
+            "GraphQLAPIEndpointOutput": "string"
+        }
+    },
     "auth": {
         "voitrain": {
             "IdentityPoolId": "string",
@@ -10,21 +17,15 @@ export type AmplifyDependentResourcesAttributes = {
             "AppClientID": "string"
         }
     },
-    "api": {
-        "voitrain": {
-            "GraphQLAPIIdOutput": "string",
-            "GraphQLAPIEndpointOutput": "string"
-        }
-    },
     "predictions": {
-        "speechGenerator858518b1": {
+        "transcription7ec01d63": {
+            "region": "string",
+            "language": "string"
+        },
+        "speechGenerator6caa14bd": {
             "region": "string",
             "language": "string",
             "voice": "string"
-        },
-        "transcription4b492f8b": {
-            "region": "string",
-            "language": "string"
         }
     }
 }

@@ -1,44 +1,91 @@
-import { Authenticator, Flex, View } from "@aws-amplify/ui-react";
-import "@aws-amplify/ui-react/styles.css";
-import { Amplify } from "aws-amplify";
+import { AmplifyProvider, Authenticator } from "@aws-amplify/ui-react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Modal from "react-modal";
-import awsExports from "../../../src/aws-exports";
 import useQueryCardSetFromId from "../../../src/hooks/useQueryCardSetFromId";
 import useQueryCardsFromCardSetId from "../../../src/hooks/useQueryCardsFromCardSetId";
+import Center from "../../../src/layout/center";
+import CardEdit from "../../../src/ui-components/CardEdit";
 import CardListingViewCollection from "../../../src/ui-components/CardListingViewCollection";
-import CardSetEdit from "../../../src/ui-components/CardSetEdit";
-
-Amplify.configure(awsExports);
+import CardSetDetail from "../../../src/ui-components/CardSetDetail";
 
 const Home: NextPage = () => {
   const router = useRouter();
 
-  const [editModalIsOpen, setEditModalIsOpen] = useState(true);
+  const [editModalIsOpen, setEditModalIsOpen] = useState(false);
   const { cardSetId } = router.query;
   const { cards } = useQueryCardsFromCardSetId(cardSetId);
   const { cardSet } = useQueryCardSetFromId(cardSetId);
+  const [name, setName] = useState();
+  const [cardToEdit, setCardToEdit] = useState();
   return (
     <>
       <Authenticator>
-        <Flex
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          alignContent="flex-start"
-          wrap="nowrap"
-          gap="1rem"
-        >
-          <View>
-            <CardSetEdit cardSet={cardSet} />
-            <CardListingViewCollection items={cards} />
+        <AmplifyProvider>
+          <Center>
+            <CardSetDetail
+              cardSet={cardSet}
+              overrides={{
+                pencil: {
+                  onClick: () => {
+                    setEditModalIsOpen(true);
+                  },
+                },
+              }}
+            />
+            {/* <Modal isOpen={editModalIsOpen} style={customStyles}>
+              <Center>
+                <CardSetEdit
+                  cardSet={cardSet}
+                  overrides={{
+                    close: {
+                      onClick: () => {
+                        setEditModalIsOpen(false);
+                      },
+                    },
+                    TextField: {
+                      onChange: (event: any) => {
+                        if (event.target.value == "") {
+                          setName(cardSet.name);
+                        } else {
+                          setName(event.target.value);
+                        }
+                      },
+                    },
+                  }}
+                />
+              </Center>
+            </Modal> */}
+            <CardListingViewCollection
+              items={cards}
+              overrideItems={({ item, index }) => ({
+                overrides: {
+                  pencil: {
+                    onClick: () => {
+                      setEditModalIsOpen(true);
+                      setCardToEdit(item);
+                    },
+                  },
+                },
+              })}
+            />
             <Modal isOpen={editModalIsOpen} style={customStyles}>
-              モーダル開いた
+              <Center>
+                <CardEdit
+                  card={cardToEdit}
+                  overrides={{
+                    close: {
+                      onClick: () => {
+                        setEditModalIsOpen(false);
+                      },
+                    },
+                  }}
+                />
+              </Center>
             </Modal>
-          </View>
-        </Flex>
+          </Center>
+        </AmplifyProvider>
       </Authenticator>
     </>
   );

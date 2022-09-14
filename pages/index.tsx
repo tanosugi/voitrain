@@ -1,11 +1,9 @@
-import type { NextPage } from "next";
 import EditProfileCollection from "../src/ui-components/EditProfileCollection";
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <>
-      <EditProfileCollection />
-      <div>{"Landing Page"}</div>
+      <EditProfileCollection marginBottom="10px" />
     </>
   );
 };

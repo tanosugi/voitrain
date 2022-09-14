@@ -6,8 +6,11 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps } from "@aws-amplify/ui-react";
-export declare type NavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
+import { Card } from "../models";
+import { ViewProps } from "@aws-amplify/ui-react";
+export declare type CardCreateProps = React.PropsWithChildren<Partial<ViewProps> & {
+    card?: Card;
+} & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function NavBar(props: NavBarProps): React.ReactElement;
+export default function CardCreate(props: CardCreateProps): React.ReactElement;

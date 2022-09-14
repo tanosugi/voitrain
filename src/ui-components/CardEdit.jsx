@@ -8,135 +8,349 @@
 import React from "react";
 import {
   getOverrideProps,
-  useDataStoreDeleteAction,
+  useDataStoreCreateAction,
+  useDataStoreUpdateAction,
+  useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
 import { Card } from "../models";
 import { schema } from "../models/schema";
-import { Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
+import { useEffect } from "react";
+import {
+  Button,
+  Divider,
+  Flex,
+  Icon,
+  Image,
+  Text,
+  TextField,
+  View,
+} from "@aws-amplify/ui-react";
 export default function CardEdit(props) {
   const { card, overrides, ...rest } = props;
-  const vectorFourThreeOneNineOnClick = useDataStoreDeleteAction({
+  const [
+    textFieldTwoNineSevenSixSixNineTwoTwoValue,
+    setTextFieldTwoNineSevenSixSixNineTwoTwoValue,
+  ] = useStateMutationAction("");
+  const [
+    textFieldTwoNineSevenSixSixNineTwoThreeValue,
+    setTextFieldTwoNineSevenSixSixNineTwoThreeValue,
+  ] = useStateMutationAction("");
+  const [
+    textFieldTwoNineSevenSixSixNineTwoFourValue,
+    setTextFieldTwoNineSevenSixSixNineTwoFourValue,
+  ] = useStateMutationAction("");
+  const buttonTwoNineSevenSixSixNineTwoSixOnClick = useDataStoreUpdateAction({
+    fields: {
+      word: textFieldTwoNineSevenSixSixNineTwoTwoValue,
+      image_url: textFieldTwoNineSevenSixSixNineTwoThreeValue,
+      cardsetID: textFieldTwoNineSevenSixSixNineTwoFourValue,
+    },
     id: card?.id,
     model: Card,
     schema: schema,
   });
+  const buttonThreeFourFiveSevenTwoSixNineTwoOnClick = useDataStoreCreateAction(
+    {
+      fields: {
+        word: textFieldTwoNineSevenSixSixNineTwoTwoValue,
+        image_url: textFieldTwoNineSevenSixSixNineTwoThreeValue,
+        cardsetID: textFieldTwoNineSevenSixSixNineTwoFourValue,
+      },
+      model: Card,
+      schema: schema,
+    }
+  );
+  useEffect(() => {
+    if (
+      textFieldTwoNineSevenSixSixNineTwoTwoValue === "" &&
+      card !== undefined &&
+      card?.word !== undefined
+    )
+      setTextFieldTwoNineSevenSixSixNineTwoTwoValue(card?.word);
+  }, [card]);
+  useEffect(() => {
+    if (
+      textFieldTwoNineSevenSixSixNineTwoThreeValue === "" &&
+      card !== undefined &&
+      card?.image_url !== undefined
+    )
+      setTextFieldTwoNineSevenSixSixNineTwoThreeValue(card?.image_url);
+  }, [card]);
+  useEffect(() => {
+    if (
+      textFieldTwoNineSevenSixSixNineTwoFourValue === "" &&
+      card !== undefined &&
+      card?.cardsetID !== undefined
+    )
+      setTextFieldTwoNineSevenSixSixNineTwoFourValue(card?.cardsetID);
+  }, [card]);
   return (
-    <View
-      width="278px"
-      height="103px"
+    <Flex
+      gap="6px"
+      direction="column"
+      width="288px"
+      justifyContent="center"
+      alignItems="center"
       position="relative"
       padding="0px 0px 0px 0px"
+      backgroundColor="rgba(255,255,255,1)"
       {...rest}
       {...getOverrideProps(overrides, "CardEdit")}
     >
-      <Image
-        position="absolute"
-        top="0%"
-        bottom="38.83%"
-        height="61.17%"
-        left="0%"
-        right="73.38%"
-        width="26.62%"
-        padding="0px 0px 0px 0px"
-        src={card?.image_url}
-        {...getOverrideProps(overrides, "Image")}
-      ></Image>
       <Flex
-        gap="0"
-        position="absolute"
-        top="61.17%"
-        bottom="0%"
-        left="0%"
-        right="77.7%"
+        gap="5px"
         direction="column"
-        width="62px"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "InputGroup")}
+        alignItems="center"
+        shrink="0"
+        alignSelf="stretch"
+        objectFit="cover"
+        position="relative"
+        padding="24px 24px 24px 24px"
+        {...getOverrideProps(overrides, "Content")}
       >
         <Flex
-          gap="10px"
-          direction="column"
-          width="300px"
-          justifyContent="center"
+          gap="16px"
           alignItems="center"
           shrink="0"
+          alignSelf="stretch"
+          objectFit="cover"
           position="relative"
-          border="1px SOLID rgba(174,179,183,1)"
-          borderRadius="4px"
-          padding="7px 15px 7px 15px"
-          {...getOverrideProps(overrides, "Input")}
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "Edit Profile")}
         >
+          <View
+            width="24px"
+            height="24px"
+            shrink="0"
+            overflow="hidden"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            {...getOverrideProps(overrides, "Icon")}
+          >
+            <Icon
+              width="14px"
+              height="14px"
+              viewBox={{ minX: 0, minY: 0, width: 14, height: 14 }}
+              paths={[
+                {
+                  d: "M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z",
+                  fill: "rgba(13,26,38,1)",
+                  fillRule: "nonzero",
+                },
+              ]}
+              position="absolute"
+              top="20.83%"
+              bottom="20.83%"
+              left="20.83%"
+              right="20.83%"
+              {...getOverrideProps(overrides, "Vector29766915")}
+            ></Icon>
+          </View>
           <Text
             fontFamily="Inter"
             fontSize="16px"
-            fontWeight="400"
-            color="rgba(128,128,128,1)"
-            lineHeight="24px"
+            fontWeight="700"
+            color="rgba(13,26,38,1)"
+            lineHeight="20px"
             textAlign="left"
             display="flex"
             direction="column"
             justifyContent="flex-start"
             shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            children="Edit Card"
+            {...getOverrideProps(overrides, "Edit Card")}
+          ></Text>
+        </Flex>
+        <Divider
+          height="1px"
+          shrink="0"
+          alignSelf="stretch"
+          objectFit="cover"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          size="small"
+          orientation="horizontal"
+          {...getOverrideProps(overrides, "Divider29766917")}
+        ></Divider>
+        <Image
+          width="232px"
+          height="243.46px"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "Image")}
+        ></Image>
+        <View
+          width="64px"
+          height="64px"
+          shrink="0"
+          overflow="hidden"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "refresh")}
+        >
+          <Icon
+            width="42.666656494140625px"
+            height="42.66668701171875px"
+            viewBox={{
+              minX: 0,
+              minY: 0,
+              width: 42.666656494140625,
+              height: 42.66668701171875,
+            }}
+            paths={[
+              {
+                d: "M36.4 6.26667C32.5333 2.4 27.2267 0 21.3333 0C15.6754 4.73695e-15 10.2492 2.24761 6.24839 6.24839C2.24761 10.2492 7.10543e-15 15.6754 0 21.3333C7.10543e-15 26.9913 2.24761 32.4175 6.24839 36.4183C10.2492 40.4191 15.6754 42.6667 21.3333 42.6667C31.28 42.6667 39.5733 35.8667 41.9467 26.6667L36.4 26.6667C34.2133 32.88 28.2933 37.3333 21.3333 37.3333C17.0899 37.3333 13.0202 35.6476 10.0196 32.647C7.01904 29.6465 5.33333 25.5768 5.33333 21.3333C5.33333 17.0899 7.01904 13.0202 10.0196 10.0196C13.0202 7.01904 17.0899 5.33333 21.3333 5.33333C25.76 5.33333 29.7067 7.17333 32.5867 10.08L24 18.6667L42.6667 18.6667L42.6667 0L36.4 6.26667Z",
+                fill: "rgba(0,0,0,1)",
+                fillRule: "nonzero",
+              },
+            ]}
+            position="absolute"
+            top="16.67%"
+            bottom="16.67%"
+            left="16.67%"
+            right="16.67%"
+            {...getOverrideProps(overrides, "Vector35562553")}
+          ></Icon>
+        </View>
+        <Flex
+          gap="16px"
+          direction="column"
+          width="232px"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "Forms")}
+        >
+          <TextField
+            display="flex"
+            gap="8px"
+            direction="column"
+            justifyContent="center"
+            shrink="0"
             alignSelf="stretch"
             objectFit="cover"
             position="relative"
             padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children={card?.word}
-            {...getOverrideProps(overrides, "placeholder")}
-          ></Text>
+            label="Word"
+            placeholder="XXX"
+            size="default"
+            isDisabled={false}
+            labelHidden={false}
+            variation="default"
+            value={textFieldTwoNineSevenSixSixNineTwoTwoValue}
+            onChange={(event) => {
+              setTextFieldTwoNineSevenSixSixNineTwoTwoValue(event.target.value);
+            }}
+            {...getOverrideProps(overrides, "TextField29766922")}
+          ></TextField>
+          <TextField
+            display="flex"
+            gap="8px"
+            direction="column"
+            justifyContent="center"
+            shrink="0"
+            alignSelf="stretch"
+            objectFit="cover"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            label="Image URL"
+            placeholder="XXX"
+            size="default"
+            isDisabled={false}
+            labelHidden={false}
+            variation="default"
+            value={textFieldTwoNineSevenSixSixNineTwoThreeValue}
+            onChange={(event) => {
+              setTextFieldTwoNineSevenSixSixNineTwoThreeValue(
+                event.target.value
+              );
+            }}
+            {...getOverrideProps(overrides, "TextField29766923")}
+          ></TextField>
+          <TextField
+            display="flex"
+            gap="8px"
+            direction="column"
+            justifyContent="center"
+            shrink="0"
+            alignSelf="stretch"
+            objectFit="cover"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            label="Card Set ID"
+            placeholder="XXX"
+            size="default"
+            isDisabled={false}
+            labelHidden={false}
+            variation="default"
+            value={textFieldTwoNineSevenSixSixNineTwoFourValue}
+            onChange={(event) => {
+              setTextFieldTwoNineSevenSixSixNineTwoFourValue(
+                event.target.value
+              );
+            }}
+            {...getOverrideProps(overrides, "TextField29766924")}
+          ></TextField>
+        </Flex>
+        <Divider
+          height="1px"
+          shrink="0"
+          alignSelf="stretch"
+          objectFit="cover"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          size="small"
+          orientation="horizontal"
+          {...getOverrideProps(overrides, "Divider29766925")}
+        ></Divider>
+        <Flex
+          padding="0px 0px 0px 0px"
+          width="209px"
+          height="40px"
+          shrink="0"
+          position="relative"
+          {...getOverrideProps(overrides, "Group 28")}
+        >
+          <Button
+            display="flex"
+            gap="0"
+            position="absolute"
+            top="0px"
+            left="120px"
+            justifyContent="center"
+            alignItems="center"
+            size="default"
+            isDisabled={false}
+            variation="primary"
+            children="Update"
+            onClick={() => {
+              buttonTwoNineSevenSixSixNineTwoSixOnClick();
+            }}
+            {...getOverrideProps(overrides, "Button29766926")}
+          ></Button>
+          <Button
+            display="flex"
+            gap="0"
+            position="absolute"
+            top="0px"
+            left="0px"
+            justifyContent="center"
+            alignItems="center"
+            size="default"
+            isDisabled={false}
+            variation="primary"
+            children="Create"
+            onClick={() => {
+              buttonThreeFourFiveSevenTwoSixNineTwoOnClick();
+            }}
+            {...getOverrideProps(overrides, "Button34572692")}
+          ></Button>
         </Flex>
       </Flex>
-      <View
-        position="absolute"
-        top="17.48%"
-        bottom="48.54%"
-        left="94.24%"
-        right="-6.83%"
-        overflow="hidden"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "delete")}
-      >
-        <Icon
-          width="20.4166259765625px"
-          height="26.25px"
-          viewBox={{ minX: 0, minY: 0, width: 20.4166259765625, height: 26.25 }}
-          paths={[
-            {
-              d: "M20.4167 1.45833L15.3125 1.45833L13.8542 0L6.5625 0L5.10417 1.45833L0 1.45833L0 4.375L20.4167 4.375M1.45833 23.3333C1.45833 24.1069 1.76562 24.8487 2.31261 25.3957C2.85959 25.9427 3.60145 26.25 4.375 26.25L16.0417 26.25C16.8152 26.25 17.5571 25.9427 18.1041 25.3957C18.651 24.8487 18.9583 24.1069 18.9583 23.3333L18.9583 5.83333L1.45833 5.83333L1.45833 23.3333Z",
-              fill: "rgba(0,0,0,1)",
-              fillRule: "nonzero",
-            },
-          ]}
-          position="absolute"
-          top="12.5%"
-          bottom="12.5%"
-          left="20.83%"
-          right="20.83%"
-          onClick={() => {
-            vectorFourThreeOneNineOnClick();
-          }}
-          {...getOverrideProps(overrides, "Vector4319")}
-        ></Icon>
-      </View>
-      <Icon
-        width="24px"
-        height="24px"
-        viewBox={{ minX: 0, minY: 0, width: 24, height: 24 }}
-        paths={[
-          {
-            d: "M20.475 3.525C18.3 1.35 15.315 0 12 0C8.8174 2.66454e-15 5.76516 1.26428 3.51472 3.51472C1.26428 5.76516 3.9968e-15 8.8174 0 12C3.9968e-15 15.1826 1.26428 18.2348 3.51472 20.4853C5.76516 22.7357 8.8174 24 12 24C17.595 24 22.26 20.175 23.595 15L20.475 15C19.245 18.495 15.915 21 12 21C9.61305 21 7.32387 20.0518 5.63604 18.364C3.94821 16.6761 3 14.3869 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.49 3 16.71 4.035 18.33 5.67L13.5 10.5L24 10.5L24 0L20.475 3.525Z",
-            fill: "rgba(0,0,0,1)",
-            fillRule: "nonzero",
-          },
-        ]}
-        position="absolute"
-        top="22.33%"
-        bottom="54.37%"
-        left="28.06%"
-        right="63.31%"
-        {...getOverrideProps(overrides, "Vector4321")}
-      ></Icon>
-    </View>
+    </Flex>
   );
 }

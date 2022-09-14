@@ -93,7 +93,7 @@ export default function CardSetView(props) {
           bottom="12.5%"
           left="20.83%"
           right="20.83%"
-          {...getOverrideProps(overrides, "Vector34462703")}
+          {...getOverrideProps(overrides, "Vector35512511")}
         ></Icon>
       </View>
       <Image
@@ -120,13 +120,13 @@ export default function CardSetView(props) {
         {...getOverrideProps(overrides, "play")}
       >
         <Icon
-          width="13.291667938232422px"
-          height="16.916671752929688px"
+          width="13.291671752929688px"
+          height="16.916664123535156px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 13.291667938232422,
-            height: 16.916671752929688,
+            width: 13.291671752929688,
+            height: 16.916664123535156,
           }}
           paths={[
             {
@@ -140,7 +140,7 @@ export default function CardSetView(props) {
           bottom="20.25%"
           left="33.33%"
           right="20.83%"
-          {...getOverrideProps(overrides, "Vector34462706")}
+          {...getOverrideProps(overrides, "Vector35512514")}
         ></Icon>
       </View>
       <View
@@ -157,12 +157,12 @@ export default function CardSetView(props) {
         {...getOverrideProps(overrides, "pencil")}
       >
         <Icon
-          width="18.002498626708984px"
+          width="18.00250244140625px"
           height="18.00250244140625px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 18.002498626708984,
+            width: 18.00250244140625,
             height: 18.00250244140625,
           }}
           paths={[
@@ -177,7 +177,7 @@ export default function CardSetView(props) {
           bottom="12.5%"
           left="12.5%"
           right="12.49%"
-          {...getOverrideProps(overrides, "Vector34462708")}
+          {...getOverrideProps(overrides, "Vector35512516")}
         ></Icon>
       </View>
     </View>

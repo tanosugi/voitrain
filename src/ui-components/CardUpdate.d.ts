@@ -6,8 +6,11 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps } from "@aws-amplify/ui-react";
-export declare type TallCardProps = React.PropsWithChildren<Partial<FlexProps> & {
+import { Card } from "../models";
+import { ViewProps } from "@aws-amplify/ui-react";
+export declare type CardUpdateProps = React.PropsWithChildren<Partial<ViewProps> & {
+    card?: Card;
+} & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function TallCard(props: TallCardProps): React.ReactElement;
+export default function CardUpdate(props: CardUpdateProps): React.ReactElement;

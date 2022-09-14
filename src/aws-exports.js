@@ -3,10 +3,14 @@
 
 const awsmobile = {
     "aws_project_region": "ap-northeast-1",
-    "aws_cognito_identity_pool_id": "ap-northeast-1:99b59d3d-5cbf-424a-ade3-d0c2353412df",
+    "aws_appsync_graphqlEndpoint": "https://oun76dinqfccpk3mt5bupna53e.appsync-api.ap-northeast-1.amazonaws.com/graphql",
+    "aws_appsync_region": "ap-northeast-1",
+    "aws_appsync_authenticationType": "API_KEY",
+    "aws_appsync_apiKey": "da2-f6xsjj4hrbbgtfhmooahqzzqoi",
+    "aws_cognito_identity_pool_id": "ap-northeast-1:f2eeda85-8af9-4fb9-9157-45ab6df44432",
     "aws_cognito_region": "ap-northeast-1",
-    "aws_user_pools_id": "ap-northeast-1_E5xMNbFnn",
-    "aws_user_pools_web_client_id": "7e2sv75pltvmqc46ko2uc3fvur",
+    "aws_user_pools_id": "ap-northeast-1_SMYQfpGC5",
+    "aws_user_pools_web_client_id": "5robh7pii4uo8vm521fs2va28a",
     "oauth": {},
     "aws_cognito_username_attributes": [
         "EMAIL"
@@ -18,30 +22,27 @@ const awsmobile = {
         "SMS"
     ],
     "aws_cognito_password_protection_settings": {
-        "passwordPolicyMinLength": 8,
+        "passwordPolicyMinLength": 6,
         "passwordPolicyCharacters": []
     },
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
     ],
-    "aws_appsync_graphqlEndpoint": "https://a3bxxfhigfdt7nakyxnypzijky.appsync-api.ap-northeast-1.amazonaws.com/graphql",
-    "aws_appsync_region": "ap-northeast-1",
-    "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS",
     "predictions": {
         "convert": {
+            "transcription": {
+                "region": "ap-northeast-1",
+                "proxy": false,
+                "defaults": {
+                    "language": "en-US"
+                }
+            },
             "speechGenerator": {
                 "region": "ap-northeast-1",
                 "proxy": false,
                 "defaults": {
                     "VoiceId": "Kevin",
                     "LanguageCode": "en-US"
-                }
-            },
-            "transcription": {
-                "region": "ap-northeast-1",
-                "proxy": false,
-                "defaults": {
-                    "language": "en-US"
                 }
             }
         }

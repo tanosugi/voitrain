@@ -23,6 +23,9 @@ export default function CardListingViewCollection(props) {
   return (
     <Collection
       type="list"
+      isPaginated={true}
+      searchPlaceholder="Search..."
+      itemsPerPage={6}
       direction="column"
       justifyContent="stretch"
       items={items || []}

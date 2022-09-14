@@ -7,8 +7,8 @@
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { Card } from "../models";
-import { ViewProps } from "@aws-amplify/ui-react";
-export declare type CardEditProps = React.PropsWithChildren<Partial<ViewProps> & {
+import { FlexProps } from "@aws-amplify/ui-react";
+export declare type CardEditProps = React.PropsWithChildren<Partial<FlexProps> & {
     card?: Card;
 } & {
     overrides?: EscapeHatchProps | undefined | null;

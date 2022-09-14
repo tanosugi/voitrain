@@ -84,12 +84,12 @@ export default function CardView(props) {
       >
         <Icon
           width="20.41668701171875px"
-          height="27.708343505859375px"
+          height="27.708328247070312px"
           viewBox={{
             minX: 0,
             minY: 0,
             width: 20.41668701171875,
-            height: 27.708343505859375,
+            height: 27.708328247070312,
           }}
           paths={[
             {
@@ -103,7 +103,7 @@ export default function CardView(props) {
           bottom="12.5%"
           left="20.83%"
           right="20.83%"
-          {...getOverrideProps(overrides, "Vector34462696")}
+          {...getOverrideProps(overrides, "Vector35512504")}
         ></Icon>
       </View>
       <View
@@ -118,12 +118,12 @@ export default function CardView(props) {
       >
         <Icon
           width="26.25px"
-          height="25.57916259765625px"
+          height="25.57917022705078px"
           viewBox={{
             minX: 0,
             minY: 0,
             width: 26.25,
-            height: 25.57916259765625,
+            height: 25.57917022705078,
           }}
           paths={[
             {
@@ -137,7 +137,7 @@ export default function CardView(props) {
           bottom="13.46%"
           left="12.5%"
           right="12.5%"
-          {...getOverrideProps(overrides, "Vector34462698")}
+          {...getOverrideProps(overrides, "Vector35512506")}
         ></Icon>
       </View>
     </View>

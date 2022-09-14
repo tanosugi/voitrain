@@ -6,10 +6,20 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useDataStoreDeleteAction,
+} from "@aws-amplify/ui-react/internal";
+import { Card } from "../models";
+import { schema } from "../models/schema";
 import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function CardListingView(props) {
   const { card, overrides, ...rest } = props;
+  const deleteOnClick = useDataStoreDeleteAction({
+    id: card?.id,
+    model: Card,
+    schema: schema,
+  });
   return (
     <View
       width="305px"
@@ -71,6 +81,9 @@ export default function CardListingView(props) {
         right="2.3%"
         overflow="hidden"
         padding="0px 0px 0px 0px"
+        onClick={() => {
+          deleteOnClick();
+        }}
         {...getOverrideProps(overrides, "delete")}
       >
         <Icon
@@ -89,31 +102,31 @@ export default function CardListingView(props) {
           bottom="12.5%"
           left="20.83%"
           right="20.83%"
-          {...getOverrideProps(overrides, "Vector34462715")}
+          {...getOverrideProps(overrides, "Vector35512523")}
         ></Icon>
       </View>
       <View
         position="absolute"
-        top="30.67%"
-        bottom="32%"
-        left="76.07%"
-        right="14.75%"
+        top="28%"
+        bottom="29.33%"
+        left="72.13%"
+        right="17.38%"
         overflow="hidden"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "pencil")}
       >
         <Icon
-          width="21.0029296875px"
-          height="21.002914428710938px"
+          width="24.003326416015625px"
+          height="24.003334045410156px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 21.0029296875,
-            height: 21.002914428710938,
+            width: 24.003326416015625,
+            height: 24.003334045410156,
           }}
           paths={[
             {
-              d: "M20.6617 4.71625C21.1167 4.26125 21.1167 3.50292 20.6617 3.07125L17.9317 0.34125C17.5 -0.11375 16.7417 -0.11375 16.2867 0.34125L14.14 2.47625L18.515 6.85125M0 16.6279L0 21.0029L4.375 21.0029L17.2783 8.08792L12.9033 3.71292L0 16.6279Z",
+              d: "M23.6133 5.39C24.1333 4.87 24.1333 4.00333 23.6133 3.51L20.4933 0.39C20 -0.13 19.1333 -0.13 18.6133 0.39L16.16 2.83L21.16 7.83M0 19.0033L0 24.0033L5 24.0033L19.7467 9.24333L14.7467 4.24333L0 19.0033Z",
               fill: "rgba(0,0,0,1)",
               fillRule: "nonzero",
             },
@@ -123,7 +136,7 @@ export default function CardListingView(props) {
           bottom="12.5%"
           left="12.5%"
           right="12.49%"
-          {...getOverrideProps(overrides, "Vector34462717")}
+          {...getOverrideProps(overrides, "Vector35632673")}
         ></Icon>
       </View>
     </View>
