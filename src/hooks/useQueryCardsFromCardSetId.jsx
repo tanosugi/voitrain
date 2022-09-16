@@ -19,6 +19,10 @@ const useQueryCardsFromCardSetId = (cardSetId) => {
   };
   useEffect(() => {
     fetchCards();
+    const subscription = DataStore.observe(Card).subscribe(fetchCards);
+    return () => {
+      subscription.unsubscribe();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardSetId]);
   return { cards };

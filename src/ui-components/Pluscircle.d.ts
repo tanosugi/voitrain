@@ -6,11 +6,8 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { Card } from "../models";
 import { FlexProps } from "@aws-amplify/ui-react";
-export declare type CardCreateProps = React.PropsWithChildren<Partial<FlexProps> & {
-    card?: Card;
-} & {
+export declare type PluscircleProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function CardCreate(props: CardCreateProps): React.ReactElement;
+export default function Pluscircle(props: PluscircleProps): React.ReactElement;

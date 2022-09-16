@@ -8,7 +8,6 @@ import config from "../src/aws-exports";
 import { studioTheme } from "../src/ui-components";
 
 Amplify.configure(config);
-// Amplify.addPluggable(new AmazonAIPredictionsProvider());
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {

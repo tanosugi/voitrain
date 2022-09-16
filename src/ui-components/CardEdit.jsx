@@ -8,8 +8,8 @@
 import React from "react";
 import {
   getOverrideProps,
-  useDataStoreCreateAction,
   useDataStoreUpdateAction,
+  useNavigateAction,
   useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
 import { Card } from "../models";
@@ -39,7 +39,8 @@ export default function CardEdit(props) {
     textFieldTwoNineSevenSixSixNineTwoFourValue,
     setTextFieldTwoNineSevenSixSixNineTwoFourValue,
   ] = useStateMutationAction("");
-  const buttonTwoNineSevenSixSixNineTwoSixOnClick = useDataStoreUpdateAction({
+  const closeOnClick = useNavigateAction({ type: "reload" });
+  const buttonOnClick = useDataStoreUpdateAction({
     fields: {
       word: textFieldTwoNineSevenSixSixNineTwoTwoValue,
       image_url: textFieldTwoNineSevenSixSixNineTwoThreeValue,
@@ -49,17 +50,6 @@ export default function CardEdit(props) {
     model: Card,
     schema: schema,
   });
-  const buttonThreeFourFiveSevenTwoSixNineTwoOnClick = useDataStoreCreateAction(
-    {
-      fields: {
-        word: textFieldTwoNineSevenSixSixNineTwoTwoValue,
-        image_url: textFieldTwoNineSevenSixSixNineTwoThreeValue,
-        cardsetID: textFieldTwoNineSevenSixSixNineTwoFourValue,
-      },
-      model: Card,
-      schema: schema,
-    }
-  );
   useEffect(() => {
     if (
       textFieldTwoNineSevenSixSixNineTwoTwoValue === "" &&
@@ -125,7 +115,10 @@ export default function CardEdit(props) {
             overflow="hidden"
             position="relative"
             padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "Icon")}
+            onClick={() => {
+              closeOnClick();
+            }}
+            {...getOverrideProps(overrides, "close")}
           >
             <Icon
               width="14px"
@@ -181,6 +174,7 @@ export default function CardEdit(props) {
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
+          src={card?.image_url}
           {...getOverrideProps(overrides, "Image")}
         ></Image>
         <View
@@ -193,13 +187,13 @@ export default function CardEdit(props) {
           {...getOverrideProps(overrides, "refresh")}
         >
           <Icon
-            width="42.666656494140625px"
-            height="42.66668701171875px"
+            width="42.66668701171875px"
+            height="42.66666793823242px"
             viewBox={{
               minX: 0,
               minY: 0,
-              width: 42.666656494140625,
-              height: 42.66668701171875,
+              width: 42.66668701171875,
+              height: 42.66666793823242,
             }}
             paths={[
               {
@@ -309,29 +303,12 @@ export default function CardEdit(props) {
         ></Divider>
         <Flex
           padding="0px 0px 0px 0px"
-          width="209px"
+          width="89px"
           height="40px"
           shrink="0"
           position="relative"
           {...getOverrideProps(overrides, "Group 28")}
         >
-          <Button
-            display="flex"
-            gap="0"
-            position="absolute"
-            top="0px"
-            left="120px"
-            justifyContent="center"
-            alignItems="center"
-            size="default"
-            isDisabled={false}
-            variation="primary"
-            children="Update"
-            onClick={() => {
-              buttonTwoNineSevenSixSixNineTwoSixOnClick();
-            }}
-            {...getOverrideProps(overrides, "Button29766926")}
-          ></Button>
           <Button
             display="flex"
             gap="0"
@@ -343,11 +320,11 @@ export default function CardEdit(props) {
             size="default"
             isDisabled={false}
             variation="primary"
-            children="Create"
+            children="Update"
             onClick={() => {
-              buttonThreeFourFiveSevenTwoSixNineTwoOnClick();
+              buttonOnClick();
             }}
-            {...getOverrideProps(overrides, "Button34572692")}
+            {...getOverrideProps(overrides, "Button")}
           ></Button>
         </Flex>
       </Flex>
