@@ -8,10 +8,10 @@
 import React from "react";
 import {
   getOverrideProps,
-  useDataStoreCreateAction,
+  useDataStoreUpdateAction,
   useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
-import { Card } from "../models";
+import { CardSet } from "../models";
 import { schema } from "../models/schema";
 import { useEffect } from "react";
 import {
@@ -24,53 +24,41 @@ import {
   TextField,
   View,
 } from "@aws-amplify/ui-react";
-export default function CardCreate(props) {
-  const { card, overrides, ...rest } = props;
+export default function CardSetEditView(props) {
+  const { cardSet, overrides, ...rest } = props;
   const [
-    textFieldThreeFiveSixFiveTwoFiveFiveSixValue,
-    setTextFieldThreeFiveSixFiveTwoFiveFiveSixValue,
+    textFieldThreeFiveSevenSevenTwoSixZeroEightValue,
+    setTextFieldThreeFiveSevenSevenTwoSixZeroEightValue,
   ] = useStateMutationAction("");
   const [
-    textFieldThreeFiveSixFiveTwoFiveFiveSevenValue,
-    setTextFieldThreeFiveSixFiveTwoFiveFiveSevenValue,
+    textFieldThreeFiveSevenSevenTwoSixZeroNineValue,
+    setTextFieldThreeFiveSevenSevenTwoSixZeroNineValue,
   ] = useStateMutationAction("");
-  const [
-    textFieldThreeFiveSixFiveTwoFiveFiveEightValue,
-    setTextFieldThreeFiveSixFiveTwoFiveFiveEightValue,
-  ] = useStateMutationAction("");
-  const groupTwoEightOnClick = useDataStoreCreateAction({
+  const groupTwoEightOnClick = useDataStoreUpdateAction({
     fields: {
-      word: textFieldThreeFiveSixFiveTwoFiveFiveSixValue,
-      image_url: textFieldThreeFiveSixFiveTwoFiveFiveSevenValue,
-      cardsetID: textFieldThreeFiveSixFiveTwoFiveFiveEightValue,
+      name: textFieldThreeFiveSevenSevenTwoSixZeroEightValue,
+      image_url: textFieldThreeFiveSevenSevenTwoSixZeroNineValue,
     },
-    model: Card,
+    id: cardSet?.id,
+    model: CardSet,
     schema: schema,
   });
   useEffect(() => {
     if (
-      textFieldThreeFiveSixFiveTwoFiveFiveSixValue === "" &&
-      card !== undefined &&
-      card?.word !== undefined
+      textFieldThreeFiveSevenSevenTwoSixZeroEightValue === "" &&
+      cardSet !== undefined &&
+      cardSet?.name !== undefined
     )
-      setTextFieldThreeFiveSixFiveTwoFiveFiveSixValue(card?.word);
-  }, [card]);
+      setTextFieldThreeFiveSevenSevenTwoSixZeroEightValue(cardSet?.name);
+  }, [cardSet]);
   useEffect(() => {
     if (
-      textFieldThreeFiveSixFiveTwoFiveFiveSevenValue === "" &&
-      card !== undefined &&
-      card?.image_url !== undefined
+      textFieldThreeFiveSevenSevenTwoSixZeroNineValue === "" &&
+      cardSet !== undefined &&
+      cardSet?.image_url !== undefined
     )
-      setTextFieldThreeFiveSixFiveTwoFiveFiveSevenValue(card?.image_url);
-  }, [card]);
-  useEffect(() => {
-    if (
-      textFieldThreeFiveSixFiveTwoFiveFiveEightValue === "" &&
-      card !== undefined &&
-      card?.cardsetID !== undefined
-    )
-      setTextFieldThreeFiveSixFiveTwoFiveFiveEightValue(card?.cardsetID);
-  }, [card]);
+      setTextFieldThreeFiveSevenSevenTwoSixZeroNineValue(cardSet?.image_url);
+  }, [cardSet]);
   return (
     <Flex
       gap="6px"
@@ -82,7 +70,7 @@ export default function CardCreate(props) {
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
       {...rest}
-      {...getOverrideProps(overrides, "CardCreate")}
+      {...getOverrideProps(overrides, "CardSetEditView")}
     >
       <Flex
         gap="5px"
@@ -130,7 +118,7 @@ export default function CardCreate(props) {
               bottom="20.83%"
               left="20.83%"
               right="20.83%"
-              {...getOverrideProps(overrides, "Vector35652549")}
+              {...getOverrideProps(overrides, "Vector35772601")}
             ></Icon>
           </View>
           <Text
@@ -147,8 +135,8 @@ export default function CardCreate(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Create Card"
-            {...getOverrideProps(overrides, "Create Card")}
+            children="Edit Card Set"
+            {...getOverrideProps(overrides, "Edit Card Set")}
           ></Text>
         </Flex>
         <Divider
@@ -160,7 +148,7 @@ export default function CardCreate(props) {
           padding="0px 0px 0px 0px"
           size="small"
           orientation="horizontal"
-          {...getOverrideProps(overrides, "Divider35652551")}
+          {...getOverrideProps(overrides, "Divider35772603")}
         ></Divider>
         <Image
           width="232px"
@@ -168,6 +156,7 @@ export default function CardCreate(props) {
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
+          src={cardSet?.image_url}
           {...getOverrideProps(overrides, "Image")}
         ></Image>
         <View
@@ -180,12 +169,12 @@ export default function CardCreate(props) {
           {...getOverrideProps(overrides, "refresh")}
         >
           <Icon
-            width="42.66668701171875px"
+            width="42.6666259765625px"
             height="42.66666793823242px"
             viewBox={{
               minX: 0,
               minY: 0,
-              width: 42.66668701171875,
+              width: 42.6666259765625,
               height: 42.66666793823242,
             }}
             paths={[
@@ -200,7 +189,7 @@ export default function CardCreate(props) {
             bottom="16.67%"
             left="16.67%"
             right="16.67%"
-            {...getOverrideProps(overrides, "Vector35652554")}
+            {...getOverrideProps(overrides, "Vector35772606")}
           ></Icon>
         </View>
         <Flex
@@ -222,19 +211,19 @@ export default function CardCreate(props) {
             objectFit="cover"
             position="relative"
             padding="0px 0px 0px 0px"
-            label="Word"
+            label="Card Set Name"
             placeholder="XXX"
             size="default"
             isDisabled={false}
             labelHidden={false}
             variation="default"
-            value={textFieldThreeFiveSixFiveTwoFiveFiveSixValue}
+            value={textFieldThreeFiveSevenSevenTwoSixZeroEightValue}
             onChange={(event) => {
-              setTextFieldThreeFiveSixFiveTwoFiveFiveSixValue(
+              setTextFieldThreeFiveSevenSevenTwoSixZeroEightValue(
                 event.target.value
               );
             }}
-            {...getOverrideProps(overrides, "TextField35652556")}
+            {...getOverrideProps(overrides, "TextField35772608")}
           ></TextField>
           <TextField
             display="flex"
@@ -252,37 +241,13 @@ export default function CardCreate(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
-            value={textFieldThreeFiveSixFiveTwoFiveFiveSevenValue}
+            value={textFieldThreeFiveSevenSevenTwoSixZeroNineValue}
             onChange={(event) => {
-              setTextFieldThreeFiveSixFiveTwoFiveFiveSevenValue(
+              setTextFieldThreeFiveSevenSevenTwoSixZeroNineValue(
                 event.target.value
               );
             }}
-            {...getOverrideProps(overrides, "TextField35652557")}
-          ></TextField>
-          <TextField
-            display="flex"
-            gap="8px"
-            direction="column"
-            justifyContent="center"
-            shrink="0"
-            alignSelf="stretch"
-            objectFit="cover"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            label="Card Set ID"
-            placeholder="XXX"
-            size="default"
-            isDisabled={false}
-            labelHidden={false}
-            variation="default"
-            value={textFieldThreeFiveSixFiveTwoFiveFiveEightValue}
-            onChange={(event) => {
-              setTextFieldThreeFiveSixFiveTwoFiveFiveEightValue(
-                event.target.value
-              );
-            }}
-            {...getOverrideProps(overrides, "TextField35652558")}
+            {...getOverrideProps(overrides, "TextField35772609")}
           ></TextField>
         </Flex>
         <Divider
@@ -294,11 +259,11 @@ export default function CardCreate(props) {
           padding="0px 0px 0px 0px"
           size="small"
           orientation="horizontal"
-          {...getOverrideProps(overrides, "Divider35652559")}
+          {...getOverrideProps(overrides, "Divider35772611")}
         ></Divider>
         <Flex
           padding="0px 0px 0px 0px"
-          width="85px"
+          width="89px"
           height="40px"
           shrink="0"
           position="relative"
@@ -318,7 +283,7 @@ export default function CardCreate(props) {
             size="default"
             isDisabled={false}
             variation="primary"
-            children="Create"
+            children="Update"
             {...getOverrideProps(overrides, "Button")}
           ></Button>
         </Flex>

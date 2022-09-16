@@ -1,11 +1,5 @@
-import EditProfileCollection from "../src/ui-components/EditProfileCollection";
-
 const Home = () => {
-  return (
-    <>
-      <EditProfileCollection marginBottom="10px" />
-    </>
-  );
+  return <>{"LandingPage"}</>;
 };
 
 export default Home;

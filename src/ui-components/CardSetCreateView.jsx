@@ -9,10 +9,9 @@ import React from "react";
 import {
   getOverrideProps,
   useDataStoreCreateAction,
-  useDataStoreUpdateAction,
   useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
-import { Card } from "../models";
+import { CardSet } from "../models";
 import { schema } from "../models/schema";
 import { useEffect } from "react";
 import {
@@ -25,65 +24,40 @@ import {
   TextField,
   View,
 } from "@aws-amplify/ui-react";
-export default function EditProfile(props) {
-  const { card, overrides, ...rest } = props;
+export default function CardSetCreateView(props) {
+  const { cardSet, overrides, ...rest } = props;
   const [
-    textFieldTwoNineSevenSixSixNineTwoTwoValue,
-    setTextFieldTwoNineSevenSixSixNineTwoTwoValue,
+    textFieldThreeFiveSevenSevenTwoSixFourNineValue,
+    setTextFieldThreeFiveSevenSevenTwoSixFourNineValue,
   ] = useStateMutationAction("");
   const [
-    textFieldTwoNineSevenSixSixNineTwoThreeValue,
-    setTextFieldTwoNineSevenSixSixNineTwoThreeValue,
+    textFieldThreeFiveSevenSevenTwoSixFiveZeroValue,
+    setTextFieldThreeFiveSevenSevenTwoSixFiveZeroValue,
   ] = useStateMutationAction("");
-  const [
-    textFieldTwoNineSevenSixSixNineTwoFourValue,
-    setTextFieldTwoNineSevenSixSixNineTwoFourValue,
-  ] = useStateMutationAction("");
-  const buttonTwoNineSevenSixSixNineTwoSixOnClick = useDataStoreUpdateAction({
+  const groupTwoEightOnClick = useDataStoreCreateAction({
     fields: {
-      word: textFieldTwoNineSevenSixSixNineTwoTwoValue,
-      image_url: textFieldTwoNineSevenSixSixNineTwoThreeValue,
-      cardsetID: textFieldTwoNineSevenSixSixNineTwoFourValue,
+      name: textFieldThreeFiveSevenSevenTwoSixFourNineValue,
+      image_url: textFieldThreeFiveSevenSevenTwoSixFiveZeroValue,
     },
-    id: card?.id,
-    model: Card,
+    model: CardSet,
     schema: schema,
   });
-  const buttonThreeFourFiveSevenTwoSixNineTwoOnClick = useDataStoreCreateAction(
-    {
-      fields: {
-        word: textFieldTwoNineSevenSixSixNineTwoTwoValue,
-        image_url: textFieldTwoNineSevenSixSixNineTwoThreeValue,
-        cardsetID: textFieldTwoNineSevenSixSixNineTwoFourValue,
-      },
-      model: Card,
-      schema: schema,
-    }
-  );
   useEffect(() => {
     if (
-      textFieldTwoNineSevenSixSixNineTwoTwoValue === "" &&
-      card !== undefined &&
-      card?.word !== undefined
+      textFieldThreeFiveSevenSevenTwoSixFourNineValue === "" &&
+      cardSet !== undefined &&
+      cardSet?.name !== undefined
     )
-      setTextFieldTwoNineSevenSixSixNineTwoTwoValue(card?.word);
-  }, [card]);
+      setTextFieldThreeFiveSevenSevenTwoSixFourNineValue(cardSet?.name);
+  }, [cardSet]);
   useEffect(() => {
     if (
-      textFieldTwoNineSevenSixSixNineTwoThreeValue === "" &&
-      card !== undefined &&
-      card?.image_url !== undefined
+      textFieldThreeFiveSevenSevenTwoSixFiveZeroValue === "" &&
+      cardSet !== undefined &&
+      cardSet?.image_url !== undefined
     )
-      setTextFieldTwoNineSevenSixSixNineTwoThreeValue(card?.image_url);
-  }, [card]);
-  useEffect(() => {
-    if (
-      textFieldTwoNineSevenSixSixNineTwoFourValue === "" &&
-      card !== undefined &&
-      card?.cardsetID !== undefined
-    )
-      setTextFieldTwoNineSevenSixSixNineTwoFourValue(card?.cardsetID);
-  }, [card]);
+      setTextFieldThreeFiveSevenSevenTwoSixFiveZeroValue(cardSet?.image_url);
+  }, [cardSet]);
   return (
     <Flex
       gap="6px"
@@ -95,7 +69,7 @@ export default function EditProfile(props) {
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
       {...rest}
-      {...getOverrideProps(overrides, "EditProfile")}
+      {...getOverrideProps(overrides, "CardSetCreateView")}
     >
       <Flex
         gap="5px"
@@ -125,7 +99,7 @@ export default function EditProfile(props) {
             overflow="hidden"
             position="relative"
             padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "Icon")}
+            {...getOverrideProps(overrides, "close")}
           >
             <Icon
               width="14px"
@@ -143,7 +117,7 @@ export default function EditProfile(props) {
               bottom="20.83%"
               left="20.83%"
               right="20.83%"
-              {...getOverrideProps(overrides, "Vector29766915")}
+              {...getOverrideProps(overrides, "Vector35772642")}
             ></Icon>
           </View>
           <Text
@@ -160,8 +134,8 @@ export default function EditProfile(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Edit Card"
-            {...getOverrideProps(overrides, "Edit Card")}
+            children="Create Card Set"
+            {...getOverrideProps(overrides, "Create Card Set")}
           ></Text>
         </Flex>
         <Divider
@@ -173,7 +147,7 @@ export default function EditProfile(props) {
           padding="0px 0px 0px 0px"
           size="small"
           orientation="horizontal"
-          {...getOverrideProps(overrides, "Divider29766917")}
+          {...getOverrideProps(overrides, "Divider35772644")}
         ></Divider>
         <Image
           width="232px"
@@ -181,6 +155,7 @@ export default function EditProfile(props) {
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
+          src={cardSet?.image_url}
           {...getOverrideProps(overrides, "Image")}
         ></Image>
         <View
@@ -193,13 +168,13 @@ export default function EditProfile(props) {
           {...getOverrideProps(overrides, "refresh")}
         >
           <Icon
-            width="42.666656494140625px"
-            height="42.66668701171875px"
+            width="42.6666259765625px"
+            height="42.66666793823242px"
             viewBox={{
               minX: 0,
               minY: 0,
-              width: 42.666656494140625,
-              height: 42.66668701171875,
+              width: 42.6666259765625,
+              height: 42.66666793823242,
             }}
             paths={[
               {
@@ -213,7 +188,7 @@ export default function EditProfile(props) {
             bottom="16.67%"
             left="16.67%"
             right="16.67%"
-            {...getOverrideProps(overrides, "Vector35562553")}
+            {...getOverrideProps(overrides, "Vector35772647")}
           ></Icon>
         </View>
         <Flex
@@ -235,17 +210,19 @@ export default function EditProfile(props) {
             objectFit="cover"
             position="relative"
             padding="0px 0px 0px 0px"
-            label="Word"
+            label="Card Set Name"
             placeholder="XXX"
             size="default"
             isDisabled={false}
             labelHidden={false}
             variation="default"
-            value={textFieldTwoNineSevenSixSixNineTwoTwoValue}
+            value={textFieldThreeFiveSevenSevenTwoSixFourNineValue}
             onChange={(event) => {
-              setTextFieldTwoNineSevenSixSixNineTwoTwoValue(event.target.value);
+              setTextFieldThreeFiveSevenSevenTwoSixFourNineValue(
+                event.target.value
+              );
             }}
-            {...getOverrideProps(overrides, "TextField29766922")}
+            {...getOverrideProps(overrides, "TextField35772649")}
           ></TextField>
           <TextField
             display="flex"
@@ -263,37 +240,13 @@ export default function EditProfile(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
-            value={textFieldTwoNineSevenSixSixNineTwoThreeValue}
+            value={textFieldThreeFiveSevenSevenTwoSixFiveZeroValue}
             onChange={(event) => {
-              setTextFieldTwoNineSevenSixSixNineTwoThreeValue(
+              setTextFieldThreeFiveSevenSevenTwoSixFiveZeroValue(
                 event.target.value
               );
             }}
-            {...getOverrideProps(overrides, "TextField29766923")}
-          ></TextField>
-          <TextField
-            display="flex"
-            gap="8px"
-            direction="column"
-            justifyContent="center"
-            shrink="0"
-            alignSelf="stretch"
-            objectFit="cover"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            label="Card Set ID"
-            placeholder="XXX"
-            size="default"
-            isDisabled={false}
-            labelHidden={false}
-            variation="default"
-            value={textFieldTwoNineSevenSixSixNineTwoFourValue}
-            onChange={(event) => {
-              setTextFieldTwoNineSevenSixSixNineTwoFourValue(
-                event.target.value
-              );
-            }}
-            {...getOverrideProps(overrides, "TextField29766924")}
+            {...getOverrideProps(overrides, "TextField35772650")}
           ></TextField>
         </Flex>
         <Divider
@@ -305,33 +258,19 @@ export default function EditProfile(props) {
           padding="0px 0px 0px 0px"
           size="small"
           orientation="horizontal"
-          {...getOverrideProps(overrides, "Divider29766925")}
+          {...getOverrideProps(overrides, "Divider35772652")}
         ></Divider>
         <Flex
           padding="0px 0px 0px 0px"
-          width="209px"
+          width="85px"
           height="40px"
           shrink="0"
           position="relative"
+          onClick={() => {
+            groupTwoEightOnClick();
+          }}
           {...getOverrideProps(overrides, "Group 28")}
         >
-          <Button
-            display="flex"
-            gap="0"
-            position="absolute"
-            top="0px"
-            left="120px"
-            justifyContent="center"
-            alignItems="center"
-            size="default"
-            isDisabled={false}
-            variation="primary"
-            children="Update"
-            onClick={() => {
-              buttonTwoNineSevenSixSixNineTwoSixOnClick();
-            }}
-            {...getOverrideProps(overrides, "Button29766926")}
-          ></Button>
           <Button
             display="flex"
             gap="0"
@@ -344,10 +283,7 @@ export default function EditProfile(props) {
             isDisabled={false}
             variation="primary"
             children="Create"
-            onClick={() => {
-              buttonThreeFourFiveSevenTwoSixNineTwoOnClick();
-            }}
-            {...getOverrideProps(overrides, "Button34572692")}
+            {...getOverrideProps(overrides, "Button")}
           ></Button>
         </Flex>
       </Flex>

@@ -24,20 +24,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "Cards": {
-                    "name": "Cards",
-                    "isArray": true,
-                    "type": {
-                        "model": "Card"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "cardsetID"
-                    }
-                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -107,8 +93,8 @@ export const schema = {
                 "cardsetID": {
                     "name": "cardsetID",
                     "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
+                    "type": "String",
+                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {
@@ -136,15 +122,6 @@ export const schema = {
                     "properties": {}
                 },
                 {
-                    "type": "key",
-                    "properties": {
-                        "name": "byCardSet",
-                        "fields": [
-                            "cardsetID"
-                        ]
-                    }
-                },
-                {
                     "type": "auth",
                     "properties": {
                         "rules": [
@@ -165,5 +142,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "6ac5b2b2091e9d2f6bbf29cad0a20a8d"
+    "version": "52e4ea1c71a55f975683bb30c9189376"
 };

@@ -6,11 +6,11 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { Card } from "../models";
-import { ViewProps } from "@aws-amplify/ui-react";
-export declare type CardUpdateProps = React.PropsWithChildren<Partial<ViewProps> & {
-    card?: Card;
+import { CardSet } from "../models";
+import { FlexProps } from "@aws-amplify/ui-react";
+export declare type CardSetEditViewProps = React.PropsWithChildren<Partial<FlexProps> & {
+    cardSet?: CardSet;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function CardUpdate(props: CardUpdateProps): React.ReactElement;
+export default function CardSetEditView(props: CardSetEditViewProps): React.ReactElement;

@@ -2,13 +2,12 @@ type CardSet @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String
   image_url: String
-  Cards: [Card] @hasMany(indexName: "byCardSet", fields: ["id"])
 }
 
 type Card @model @auth(rules: [{allow: public}]) {
   id: ID!
   word: String
   image_url: String
-  cardsetID: ID! @index(name: "byCardSet")
+  cardsetID: String
 }
  

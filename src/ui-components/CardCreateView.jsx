@@ -8,8 +8,7 @@
 import React from "react";
 import {
   getOverrideProps,
-  useDataStoreUpdateAction,
-  useNavigateAction,
+  useDataStoreCreateAction,
   useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
 import { Card } from "../models";
@@ -25,54 +24,52 @@ import {
   TextField,
   View,
 } from "@aws-amplify/ui-react";
-export default function CardEdit(props) {
+export default function CardCreateView(props) {
   const { card, overrides, ...rest } = props;
   const [
-    textFieldTwoNineSevenSixSixNineTwoTwoValue,
-    setTextFieldTwoNineSevenSixSixNineTwoTwoValue,
+    textFieldThreeFiveSixFiveTwoFiveFiveSixValue,
+    setTextFieldThreeFiveSixFiveTwoFiveFiveSixValue,
   ] = useStateMutationAction("");
   const [
-    textFieldTwoNineSevenSixSixNineTwoThreeValue,
-    setTextFieldTwoNineSevenSixSixNineTwoThreeValue,
+    textFieldThreeFiveSixFiveTwoFiveFiveSevenValue,
+    setTextFieldThreeFiveSixFiveTwoFiveFiveSevenValue,
   ] = useStateMutationAction("");
   const [
-    textFieldTwoNineSevenSixSixNineTwoFourValue,
-    setTextFieldTwoNineSevenSixSixNineTwoFourValue,
+    textFieldThreeFiveSixFiveTwoFiveFiveEightValue,
+    setTextFieldThreeFiveSixFiveTwoFiveFiveEightValue,
   ] = useStateMutationAction("");
-  const closeOnClick = useNavigateAction({ type: "reload" });
-  const buttonOnClick = useDataStoreUpdateAction({
+  const groupTwoEightOnClick = useDataStoreCreateAction({
     fields: {
-      word: textFieldTwoNineSevenSixSixNineTwoTwoValue,
-      image_url: textFieldTwoNineSevenSixSixNineTwoThreeValue,
-      cardsetID: textFieldTwoNineSevenSixSixNineTwoFourValue,
+      word: textFieldThreeFiveSixFiveTwoFiveFiveSixValue,
+      image_url: textFieldThreeFiveSixFiveTwoFiveFiveSevenValue,
+      cardsetID: textFieldThreeFiveSixFiveTwoFiveFiveEightValue,
     },
-    id: card?.id,
     model: Card,
     schema: schema,
   });
   useEffect(() => {
     if (
-      textFieldTwoNineSevenSixSixNineTwoTwoValue === "" &&
+      textFieldThreeFiveSixFiveTwoFiveFiveSixValue === "" &&
       card !== undefined &&
       card?.word !== undefined
     )
-      setTextFieldTwoNineSevenSixSixNineTwoTwoValue(card?.word);
+      setTextFieldThreeFiveSixFiveTwoFiveFiveSixValue(card?.word);
   }, [card]);
   useEffect(() => {
     if (
-      textFieldTwoNineSevenSixSixNineTwoThreeValue === "" &&
+      textFieldThreeFiveSixFiveTwoFiveFiveSevenValue === "" &&
       card !== undefined &&
       card?.image_url !== undefined
     )
-      setTextFieldTwoNineSevenSixSixNineTwoThreeValue(card?.image_url);
+      setTextFieldThreeFiveSixFiveTwoFiveFiveSevenValue(card?.image_url);
   }, [card]);
   useEffect(() => {
     if (
-      textFieldTwoNineSevenSixSixNineTwoFourValue === "" &&
+      textFieldThreeFiveSixFiveTwoFiveFiveEightValue === "" &&
       card !== undefined &&
       card?.cardsetID !== undefined
     )
-      setTextFieldTwoNineSevenSixSixNineTwoFourValue(card?.cardsetID);
+      setTextFieldThreeFiveSixFiveTwoFiveFiveEightValue(card?.cardsetID);
   }, [card]);
   return (
     <Flex
@@ -85,7 +82,7 @@ export default function CardEdit(props) {
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
       {...rest}
-      {...getOverrideProps(overrides, "CardEdit")}
+      {...getOverrideProps(overrides, "CardCreateView")}
     >
       <Flex
         gap="5px"
@@ -115,9 +112,6 @@ export default function CardEdit(props) {
             overflow="hidden"
             position="relative"
             padding="0px 0px 0px 0px"
-            onClick={() => {
-              closeOnClick();
-            }}
             {...getOverrideProps(overrides, "close")}
           >
             <Icon
@@ -136,7 +130,7 @@ export default function CardEdit(props) {
               bottom="20.83%"
               left="20.83%"
               right="20.83%"
-              {...getOverrideProps(overrides, "Vector29766915")}
+              {...getOverrideProps(overrides, "Vector35652549")}
             ></Icon>
           </View>
           <Text
@@ -153,8 +147,8 @@ export default function CardEdit(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Edit Card"
-            {...getOverrideProps(overrides, "Edit Card")}
+            children="Create Card"
+            {...getOverrideProps(overrides, "Create Card")}
           ></Text>
         </Flex>
         <Divider
@@ -166,7 +160,7 @@ export default function CardEdit(props) {
           padding="0px 0px 0px 0px"
           size="small"
           orientation="horizontal"
-          {...getOverrideProps(overrides, "Divider29766917")}
+          {...getOverrideProps(overrides, "Divider35652551")}
         ></Divider>
         <Image
           width="232px"
@@ -174,7 +168,6 @@ export default function CardEdit(props) {
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          src={card?.image_url}
           {...getOverrideProps(overrides, "Image")}
         ></Image>
         <View
@@ -207,7 +200,7 @@ export default function CardEdit(props) {
             bottom="16.67%"
             left="16.67%"
             right="16.67%"
-            {...getOverrideProps(overrides, "Vector35562553")}
+            {...getOverrideProps(overrides, "Vector35652554")}
           ></Icon>
         </View>
         <Flex
@@ -235,11 +228,13 @@ export default function CardEdit(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
-            value={textFieldTwoNineSevenSixSixNineTwoTwoValue}
+            value={textFieldThreeFiveSixFiveTwoFiveFiveSixValue}
             onChange={(event) => {
-              setTextFieldTwoNineSevenSixSixNineTwoTwoValue(event.target.value);
+              setTextFieldThreeFiveSixFiveTwoFiveFiveSixValue(
+                event.target.value
+              );
             }}
-            {...getOverrideProps(overrides, "TextField29766922")}
+            {...getOverrideProps(overrides, "TextField35652556")}
           ></TextField>
           <TextField
             display="flex"
@@ -257,13 +252,13 @@ export default function CardEdit(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
-            value={textFieldTwoNineSevenSixSixNineTwoThreeValue}
+            value={textFieldThreeFiveSixFiveTwoFiveFiveSevenValue}
             onChange={(event) => {
-              setTextFieldTwoNineSevenSixSixNineTwoThreeValue(
+              setTextFieldThreeFiveSixFiveTwoFiveFiveSevenValue(
                 event.target.value
               );
             }}
-            {...getOverrideProps(overrides, "TextField29766923")}
+            {...getOverrideProps(overrides, "TextField35652557")}
           ></TextField>
           <TextField
             display="flex"
@@ -281,13 +276,13 @@ export default function CardEdit(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
-            value={textFieldTwoNineSevenSixSixNineTwoFourValue}
+            value={textFieldThreeFiveSixFiveTwoFiveFiveEightValue}
             onChange={(event) => {
-              setTextFieldTwoNineSevenSixSixNineTwoFourValue(
+              setTextFieldThreeFiveSixFiveTwoFiveFiveEightValue(
                 event.target.value
               );
             }}
-            {...getOverrideProps(overrides, "TextField29766924")}
+            {...getOverrideProps(overrides, "TextField35652558")}
           ></TextField>
         </Flex>
         <Divider
@@ -299,14 +294,17 @@ export default function CardEdit(props) {
           padding="0px 0px 0px 0px"
           size="small"
           orientation="horizontal"
-          {...getOverrideProps(overrides, "Divider29766925")}
+          {...getOverrideProps(overrides, "Divider35652559")}
         ></Divider>
         <Flex
           padding="0px 0px 0px 0px"
-          width="89px"
+          width="85px"
           height="40px"
           shrink="0"
           position="relative"
+          onClick={() => {
+            groupTwoEightOnClick();
+          }}
           {...getOverrideProps(overrides, "Group 28")}
         >
           <Button
@@ -320,10 +318,7 @@ export default function CardEdit(props) {
             size="default"
             isDisabled={false}
             variation="primary"
-            children="Update"
-            onClick={() => {
-              buttonOnClick();
-            }}
+            children="Create"
             {...getOverrideProps(overrides, "Button")}
           ></Button>
         </Flex>

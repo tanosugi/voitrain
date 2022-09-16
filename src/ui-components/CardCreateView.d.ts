@@ -8,9 +8,9 @@ import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { Card } from "../models";
 import { FlexProps } from "@aws-amplify/ui-react";
-export declare type EditProfileProps = React.PropsWithChildren<Partial<FlexProps> & {
+export declare type CardCreateViewProps = React.PropsWithChildren<Partial<FlexProps> & {
     card?: Card;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function EditProfile(props: EditProfileProps): React.ReactElement;
+export default function CardCreateView(props: CardCreateViewProps): React.ReactElement;

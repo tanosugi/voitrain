@@ -3,20 +3,28 @@ import { FC, ReactElement, useState } from "react";
 import Modal from "react-modal";
 import useQueryCardsFromCardSetId from "../hooks/useQueryCardsFromCardSetId";
 import Center from "../layout/center";
+import { customStyles } from "../layout/modalStyle";
 import { Card } from "../models";
 import {
-  CardCreate,
-  CardEdit,
+  CardCreateView,
+  CardEditView,
   CardListingViewCollection,
   Pluscircle,
 } from "../ui-components";
 
 const EditCardsInCardSet: FC<{
   cardSetId: string;
-  modalStyle?: Modal.Styles | undefined;
-}> = ({ cardSetId, modalStyle }): ReactElement => {
+}> = ({ cardSetId }): ReactElement => {
   const [modalToOpen, setModalToOpen] = useState("");
   const { cards } = useQueryCardsFromCardSetId(cardSetId);
+
+  // const {
+  //   data: cards,
+  //   isLoading,
+  //   error,
+  // } = useDataStoreQuery(Card, (c) => c.cardsetID("eq", cardSetId), {
+  //   sort: (s) => s.updatedAt(SortDirection.DESCENDING),
+  // });
   const [cardToEdit, setCardToEdit] = useState();
   Hub.listen("ui", (capsule) => {
     if (
@@ -35,15 +43,15 @@ const EditCardsInCardSet: FC<{
           overrides={{
             Pluscircle: {
               onClick: () => {
-                setModalToOpen("CardCreate");
+                setModalToOpen("CardCreateView");
               },
             },
           }}
         />
       </Center>
-      <Modal isOpen={modalToOpen == "CardCreate"} style={modalStyle}>
+      <Modal isOpen={modalToOpen == "CardCreateView"} style={customStyles}>
         <Center>
-          <CardCreate
+          <CardCreateView
             card={
               new Card({
                 word: "",
@@ -67,16 +75,16 @@ const EditCardsInCardSet: FC<{
           overrides: {
             pencil: {
               onClick: () => {
-                setModalToOpen("CardEdit");
+                setModalToOpen("CardEditView");
                 setCardToEdit(item);
               },
             },
           },
         })}
       />
-      <Modal isOpen={modalToOpen == "CardEdit"} style={modalStyle}>
+      <Modal isOpen={modalToOpen == "CardEditView"} style={customStyles}>
         <Center>
-          <CardEdit
+          <CardEditView
             card={cardToEdit}
             overrides={{
               close: {

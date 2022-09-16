@@ -11,8 +11,9 @@ import {
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
-export default function CardSetDetail(props) {
+export default function CardSetDetailView(props) {
   const { cardSet, overrides, ...rest } = props;
+  const closeOnClick = useNavigateAction({ type: "url", url: "/mycards" });
   const playOnClick = useNavigateAction({
     type: "url",
     url: `${"/practice/"}${cardSet?.id}`,
@@ -24,7 +25,7 @@ export default function CardSetDetail(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       {...rest}
-      {...getOverrideProps(overrides, "CardSetDetail")}
+      {...getOverrideProps(overrides, "CardSetDetailView")}
     >
       <View
         position="absolute"
@@ -73,6 +74,9 @@ export default function CardSetDetail(props) {
         top="0px"
         left="285px"
         padding="0px 0px 0px 0px"
+        onClick={() => {
+          closeOnClick();
+        }}
         {...getOverrideProps(overrides, "close")}
       >
         <Icon
@@ -98,8 +102,8 @@ export default function CardSetDetail(props) {
         position="absolute"
         top="78.47%"
         bottom="4.78%"
-        left="70%"
-        right="19.06%"
+        left="56.56%"
+        right="32.5%"
         overflow="hidden"
         padding="0px 0px 0px 0px"
         onClick={() => {
@@ -108,12 +112,12 @@ export default function CardSetDetail(props) {
         {...getOverrideProps(overrides, "play")}
       >
         <Icon
-          width="16.041656494140625px"
+          width="16.041671752929688px"
           height="20.416664123535156px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 16.041656494140625,
+            width: 16.041671752929688,
             height: 20.416664123535156,
           }}
           paths={[
@@ -185,6 +189,40 @@ export default function CardSetDetail(props) {
         children={cardSet?.name}
         {...getOverrideProps(overrides, "placeholder")}
       ></Text>
+      <View
+        position="absolute"
+        top="79.43%"
+        bottom="5.26%"
+        left="73.13%"
+        right="16.88%"
+        overflow="hidden"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "pencil")}
+      >
+        <Icon
+          width="24.003326416015625px"
+          height="24.003334045410156px"
+          viewBox={{
+            minX: 0,
+            minY: 0,
+            width: 24.003326416015625,
+            height: 24.003334045410156,
+          }}
+          paths={[
+            {
+              d: "M23.6133 5.39C24.1333 4.87 24.1333 4.00333 23.6133 3.51L20.4933 0.39C20 -0.13 19.1333 -0.13 18.6133 0.39L16.16 2.83L21.16 7.83M0 19.0033L0 24.0033L5 24.0033L19.7467 9.24333L14.7467 4.24333L0 19.0033Z",
+              fill: "rgba(0,0,0,1)",
+              fillRule: "nonzero",
+            },
+          ]}
+          position="absolute"
+          top="12.49%"
+          bottom="12.5%"
+          left="12.5%"
+          right="12.49%"
+          {...getOverrideProps(overrides, "Vector35812554")}
+        ></Icon>
+      </View>
     </View>
   );
 }
