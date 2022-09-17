@@ -1,4 +1,4 @@
-// import { AmazonAIPredictionsProvider } from "@aws-amplify/predictions";
+import { AmazonAIPredictionsProvider } from "@aws-amplify/predictions";
 import { AmplifyProvider } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { Amplify } from "aws-amplify";
@@ -11,7 +11,7 @@ Amplify.configure(config);
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    // Amplify.addPluggable(new AmazonAIPredictionsProvider());
+    Amplify.addPluggable(new AmazonAIPredictionsProvider());
   }, []);
   return (
     <AmplifyProvider theme={studioTheme}>
