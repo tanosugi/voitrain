@@ -1,20 +1,21 @@
 import { AmplifyProvider, Authenticator } from "@aws-amplify/ui-react";
 import { Hub } from "aws-amplify";
-import { useRouter } from "next/router";
 import { useState } from "react";
 import Modal from "react-modal";
+import useQueryCardSetFromId from "../src/hooks/useQueryCardSetFromId";
 import Center from "../src/layout/center";
+import Layout from "../src/layout/layout";
 import { customStyles } from "../src/layout/modalStyle";
-import { CardSet } from "../src/models";
 import {
   CardSetCreateView,
   CardSetViewCollection,
   Pluscircle,
 } from "../src/ui-components";
+import TabbarMyCardsChosenView from "../src/ui-components/TabbarMyCardsChosenView";
 
 const Home = () => {
   const [modalToOpen, setModalToOpen] = useState("");
-  const router = useRouter();
+  const { cardSet } = useQueryCardSetFromId("");
   Hub.listen("ui", (capsule) => {
     if (
       [
@@ -28,39 +29,45 @@ const Home = () => {
   return (
     <Authenticator>
       <AmplifyProvider>
-        <Center>
-          <Pluscircle
-            overrides={{
-              Pluscircle: {
-                onClick: () => {
-                  setModalToOpen("CardCreateView");
-                },
-              },
-            }}
-          />
-        </Center>
-        <Modal isOpen={modalToOpen == "CardCreateView"} style={customStyles}>
-          <Center>
-            <CardSetCreateView
-              cardSet={
-                new CardSet({
-                  name: "",
-                  image_url: "",
-                })
-              }
-              overrides={{
-                close: {
-                  onClick: () => {
-                    setModalToOpen("");
+        <Layout>
+          <>
+            <Center>
+              <TabbarMyCardsChosenView />
+            </Center>
+            <Center>
+              <Pluscircle
+                overrides={{
+                  Pluscircle: {
+                    onClick: () => {
+                      setModalToOpen("CardCreateView");
+                    },
+                    margin: "20px 0px 20px 0px",
                   },
-                },
-              }}
-            />
-          </Center>
-        </Modal>
-        <Center>
-          <CardSetViewCollection />
-        </Center>
+                }}
+              />
+            </Center>
+            <Modal
+              isOpen={modalToOpen == "CardCreateView"}
+              style={customStyles}
+            >
+              <Center>
+                {cardSet && (
+                  <CardSetCreateView
+                    cardSet={cardSet}
+                    overrides={{
+                      close: {
+                        onClick: () => setModalToOpen(""),
+                      },
+                    }}
+                  />
+                )}
+              </Center>
+            </Modal>
+            <Center>
+              <CardSetViewCollection />
+            </Center>
+          </>
+        </Layout>
       </AmplifyProvider>
     </Authenticator>
   );

@@ -1,11 +1,25 @@
 import { ModelInit, MutableModel } from "@aws-amplify/datastore";
 
+type PresetCardSetMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type CardSetMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
 type CardMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class PresetCardSet {
+  readonly id: string;
+  readonly name?: string | null;
+  readonly image_url?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<PresetCardSet, PresetCardSetMetaData>);
+  static copyOf(source: PresetCardSet, mutator: (draft: MutableModel<PresetCardSet, PresetCardSetMetaData>) => MutableModel<PresetCardSet, PresetCardSetMetaData> | void): PresetCardSet;
 }
 
 export declare class CardSet {

@@ -1,7 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "api": {
         "voitrain": {
-            "GraphQLAPIKeyOutput": "string",
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }

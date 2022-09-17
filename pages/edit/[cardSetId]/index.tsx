@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import EditCardSet from "../../../src/components/EditCardSet";
 import EditCardsInCardSet from "../../../src/components/EditCardsInCardSet";
 import Center from "../../../src/layout/center";
+import Layout from "../../../src/layout/layout";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -11,10 +12,12 @@ const Home: NextPage = () => {
   return (
     <>
       <Authenticator>
-        <Center>
-          <EditCardSet cardSetId={String(cardSetId)} />
-          <EditCardsInCardSet cardSetId={String(cardSetId)} />
-        </Center>
+        <Layout>
+          <Center>
+            <EditCardSet cardSetId={String(cardSetId)} />
+            <EditCardsInCardSet cardSetId={String(cardSetId)} />
+          </Center>
+        </Layout>
       </Authenticator>
     </>
   );

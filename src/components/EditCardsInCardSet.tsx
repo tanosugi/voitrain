@@ -16,15 +16,8 @@ const EditCardsInCardSet: FC<{
   cardSetId: string;
 }> = ({ cardSetId }): ReactElement => {
   const [modalToOpen, setModalToOpen] = useState("");
-  const { cards } = useQueryCardsFromCardSetId(cardSetId);
-
-  // const {
-  //   data: cards,
-  //   isLoading,
-  //   error,
-  // } = useDataStoreQuery(Card, (c) => c.cardsetID("eq", cardSetId), {
-  //   sort: (s) => s.updatedAt(SortDirection.DESCENDING),
-  // });
+  const { cards, updateCardSetImageUrl } =
+    useQueryCardsFromCardSetId(cardSetId);
   const [cardToEdit, setCardToEdit] = useState();
   Hub.listen("ui", (capsule) => {
     if (
@@ -77,6 +70,11 @@ const EditCardsInCardSet: FC<{
               onClick: () => {
                 setModalToOpen("CardEditView");
                 setCardToEdit(item);
+              },
+            },
+            refresh: {
+              onClick: () => {
+                updateCardSetImageUrl(index);
               },
             },
           },

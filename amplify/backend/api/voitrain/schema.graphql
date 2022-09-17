@@ -1,13 +1,18 @@
-type CardSet @model @auth(rules: [{allow: public}]) {
+type PresetCardSet @model @auth(rules: [{allow: private, operations: [read]}]) {
   id: ID!
   name: String
   image_url: String
 }
 
-type Card @model @auth(rules: [{allow: public}]) {
+type CardSet @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  name: String
+  image_url: String
+}
+
+type Card @model @auth(rules: [{allow: private}]) {
   id: ID!
   word: String
   image_url: String
   cardsetID: String
-}
- 
+} 

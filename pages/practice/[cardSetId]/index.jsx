@@ -9,6 +9,7 @@ import mic from "microphone-stream";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import useQueryCardsFromCardSetId from "../../../src/hooks/useQueryCardsFromCardSetId";
+import Layout from "../../../src/layout/layout";
 import CardViewCollection from "../../../src/ui-components/CardViewCollection";
 
 const Home = () => {
@@ -111,75 +112,79 @@ const Home = () => {
   return (
     <Authenticator>
       <AmplifyProvider>
-        <Flex
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          alignContent="flex-start"
-          wrap="nowrap"
-          gap="1rem"
-        >
-          <View>
-            <CardViewCollection
-              items={cards}
-              overrides={{ "Text Group": { fontWeight: "bold" } }}
-              overrideItems={({ item, index }) => ({
-                backgroundColor: index % 2 === 0 ? "white" : "lightgray",
-                overrides: {
-                  Play: {
-                    onClick: () => {
-                      // var synthes = new SpeechSynthesisUtterance(item.word);
-                      // synthes.lang = "en-US";
-                      // speechSynthesis.speak(synthes);
-                      Predictions.convert({
-                        textToSpeech: {
-                          source: {
-                            text: item.word,
-                          },
-                          voiceId: "Amy", // default configured on aws-exports.js
-                          // list of different options are here https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
-                        },
-                      })
-                        .then((result) => {
-                          let AudioContext =
-                            window.AudioContext || window.webkitAudioContext;
-                          console.log({ AudioContext });
-                          const audioCtx = new AudioContext();
-                          const source = audioCtx.createBufferSource();
-                          audioCtx.decodeAudioData(
-                            result.audioStream,
-                            (buffer) => {
-                              source.buffer = buffer;
-                              source.connect(audioCtx.destination);
-                              source.start(0);
+        <Layout>
+          <Flex
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            alignContent="flex-start"
+            wrap="nowrap"
+            gap="1rem"
+          >
+            <View>
+              <CardViewCollection
+                items={cards}
+                overrides={{ "Text Group": { fontWeight: "bold" } }}
+                overrideItems={({ item, index }) => ({
+                  backgroundColor: index % 2 === 0 ? "white" : "lightgray",
+                  overrides: {
+                    Play: {
+                      onClick: () => {
+                        // var synthes = new SpeechSynthesisUtterance(item.word);
+                        // synthes.lang = "en-US";
+                        // speechSynthesis.speak(synthes);
+                        Predictions.convert({
+                          textToSpeech: {
+                            source: {
+                              text: item.word,
                             },
-                            (err) => console.log({ err })
-                          );
-
-                          setResponse(`Generation completed, press play`);
+                            voiceId: "Amy", // default configured on aws-exports.js
+                            // list of different options are here https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
+                          },
                         })
-                        .catch((err) => setResponse(err));
+                          .then((result) => {
+                            let AudioContext =
+                              window.AudioContext || window.webkitAudioContext;
+                            console.log({ AudioContext });
+                            const audioCtx = new AudioContext();
+                            const source = audioCtx.createBufferSource();
+                            audioCtx.decodeAudioData(
+                              result.audioStream,
+                              (buffer) => {
+                                source.buffer = buffer;
+                                source.connect(audioCtx.destination);
+                                source.start(0);
+                              },
+                              (err) => console.log({ err })
+                            );
+
+                            setResponse(`Generation completed, press play`);
+                          })
+                          .catch((err) => setResponse(err));
+                      },
+                    },
+                    SpokenText: { children: response },
+                    Microphone: {
+                      onClick: (e) => {
+                        // alert("clicked");
+                        if (!isRecording) {
+                          setWordInData(
+                            item.word.toLowerCase().replace(".", "")
+                          );
+                          startRecording();
+                        } else {
+                          stopRecording();
+                        }
+                        setIsRecording(!isRecording);
+                      },
+                      style: { stroke: isRecording ? "red" : "black" },
                     },
                   },
-                  SpokenText: { children: response },
-                  Microphone: {
-                    onClick: (e) => {
-                      // alert("clicked");
-                      if (!isRecording) {
-                        setWordInData(item.word.toLowerCase().replace(".", ""));
-                        startRecording();
-                      } else {
-                        stopRecording();
-                      }
-                      setIsRecording(!isRecording);
-                    },
-                    style: { stroke: isRecording ? "red" : "black" },
-                  },
-                },
-              })}
-            />
-          </View>
-        </Flex>
+                })}
+              />
+            </View>
+          </Flex>
+        </Layout>
       </AmplifyProvider>
     </Authenticator>
   );

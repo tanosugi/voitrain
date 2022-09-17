@@ -109,8 +109,8 @@ export default function CardListingView(props) {
         position="absolute"
         top="28%"
         bottom="29.33%"
-        left="72.13%"
-        right="17.38%"
+        left="74.43%"
+        right="15.08%"
         overflow="hidden"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "pencil")}
@@ -137,6 +137,40 @@ export default function CardListingView(props) {
           left="12.5%"
           right="12.49%"
           {...getOverrideProps(overrides, "Vector35632673")}
+        ></Icon>
+      </View>
+      <View
+        position="absolute"
+        top="28%"
+        bottom="26.67%"
+        left="60.98%"
+        right="27.87%"
+        overflow="hidden"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "refresh")}
+      >
+        <Icon
+          width="22.666671752929688px"
+          height="22.66666603088379px"
+          viewBox={{
+            minX: 0,
+            minY: 0,
+            width: 22.666671752929688,
+            height: 22.66666603088379,
+          }}
+          paths={[
+            {
+              d: "M19.3375 3.32917C17.2833 1.275 14.4642 0 11.3333 0C8.32755 2.51651e-15 5.44487 1.19404 3.31946 3.31946C1.19404 5.44487 3.77476e-15 8.32755 0 11.3333C3.77476e-15 14.3391 1.19404 17.2218 3.31946 19.3472C5.44487 21.4726 8.32755 22.6667 11.3333 22.6667C16.6175 22.6667 21.0233 19.0542 22.2842 14.1667L19.3375 14.1667C18.1758 17.4675 15.0308 19.8333 11.3333 19.8333C9.07899 19.8333 6.91699 18.9378 5.32293 17.3437C3.72887 15.7497 2.83333 13.5877 2.83333 11.3333C2.83333 9.07899 3.72887 6.91699 5.32293 5.32293C6.91699 3.72887 9.07899 2.83333 11.3333 2.83333C13.685 2.83333 15.7817 3.81083 17.3117 5.355L12.75 9.91667L22.6667 9.91667L22.6667 0L19.3375 3.32917Z",
+              fill: "rgba(0,0,0,1)",
+              fillRule: "nonzero",
+            },
+          ]}
+          position="absolute"
+          top="16.67%"
+          bottom="16.67%"
+          left="16.67%"
+          right="16.67%"
+          {...getOverrideProps(overrides, "Vector36122560")}
         ></Icon>
       </View>
     </View>

@@ -121,12 +121,12 @@ export default function CardSetView(props) {
       >
         <Icon
           width="13.291671752929688px"
-          height="16.916664123535156px"
+          height="16.916667938232422px"
           viewBox={{
             minX: 0,
             minY: 0,
             width: 13.291671752929688,
-            height: 16.916664123535156,
+            height: 16.916667938232422,
           }}
           paths={[
             {

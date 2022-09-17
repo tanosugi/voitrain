@@ -5,6 +5,7 @@
   "scripts": {
     "pull": "amplify pull",
     "dev": "next dev",
+    "build-and-start": "sudo lsof -t -i tcp:8000 | xargs kill -9 || echo nothing to kill in tcp 3000; next build && next start",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

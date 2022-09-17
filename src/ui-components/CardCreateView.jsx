@@ -19,7 +19,6 @@ import {
   Divider,
   Flex,
   Icon,
-  Image,
   Text,
   TextField,
   View,
@@ -130,7 +129,7 @@ export default function CardCreateView(props) {
               bottom="20.83%"
               left="20.83%"
               right="20.83%"
-              {...getOverrideProps(overrides, "Vector35652549")}
+              {...getOverrideProps(overrides, "Vector")}
             ></Icon>
           </View>
           <Text
@@ -162,47 +161,6 @@ export default function CardCreateView(props) {
           orientation="horizontal"
           {...getOverrideProps(overrides, "Divider35652551")}
         ></Divider>
-        <Image
-          width="232px"
-          height="243.46px"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Image")}
-        ></Image>
-        <View
-          width="64px"
-          height="64px"
-          shrink="0"
-          overflow="hidden"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "refresh")}
-        >
-          <Icon
-            width="42.66668701171875px"
-            height="42.66666793823242px"
-            viewBox={{
-              minX: 0,
-              minY: 0,
-              width: 42.66668701171875,
-              height: 42.66666793823242,
-            }}
-            paths={[
-              {
-                d: "M36.4 6.26667C32.5333 2.4 27.2267 0 21.3333 0C15.6754 4.73695e-15 10.2492 2.24761 6.24839 6.24839C2.24761 10.2492 7.10543e-15 15.6754 0 21.3333C7.10543e-15 26.9913 2.24761 32.4175 6.24839 36.4183C10.2492 40.4191 15.6754 42.6667 21.3333 42.6667C31.28 42.6667 39.5733 35.8667 41.9467 26.6667L36.4 26.6667C34.2133 32.88 28.2933 37.3333 21.3333 37.3333C17.0899 37.3333 13.0202 35.6476 10.0196 32.647C7.01904 29.6465 5.33333 25.5768 5.33333 21.3333C5.33333 17.0899 7.01904 13.0202 10.0196 10.0196C13.0202 7.01904 17.0899 5.33333 21.3333 5.33333C25.76 5.33333 29.7067 7.17333 32.5867 10.08L24 18.6667L42.6667 18.6667L42.6667 0L36.4 6.26667Z",
-                fill: "rgba(0,0,0,1)",
-                fillRule: "nonzero",
-              },
-            ]}
-            position="absolute"
-            top="16.67%"
-            bottom="16.67%"
-            left="16.67%"
-            right="16.67%"
-            {...getOverrideProps(overrides, "Vector35652554")}
-          ></Icon>
-        </View>
         <Flex
           gap="16px"
           direction="column"
@@ -247,7 +205,7 @@ export default function CardCreateView(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             label="Image URL"
-            placeholder="XXX"
+            placeholder="You can set later."
             size="default"
             isDisabled={false}
             labelHidden={false}
