@@ -1,8 +1,7 @@
 import {
-  AmplifyProvider,
   Authenticator,
   Flex,
-  View,
+  View
 } from "@aws-amplify/ui-react";
 import { Predictions } from "aws-amplify";
 import mic from "microphone-stream";
@@ -113,7 +112,6 @@ const Home = () => {
   }
   return (
     <Authenticator>
-      <AmplifyProvider>
         <Layout>
           <Flex
             direction="row"
@@ -187,7 +185,6 @@ const Home = () => {
             </View>
           </Flex>
         </Layout>
-      </AmplifyProvider>
     </Authenticator>
   );
 };

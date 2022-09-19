@@ -1,13 +1,10 @@
 import { FC, ReactElement } from "react";
-import Navbar from "../ui-components/Navbar";
+import NavbarView from "../ui-components/Navbar";
 
 const Layout: FC<{ children: ReactElement }> = ({ children }): ReactElement => {
   return (
     <>
-      <Navbar
-        width="100%"
-        overrides={{ Navbar: { margin: "0px 0px 20px 0px" } }}
-      />
+      <NavbarView width="100%" margin="0px 0px 20px 0px" />
       {children}
     </>
   );

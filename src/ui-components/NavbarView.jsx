@@ -12,7 +12,7 @@ import {
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
-export default function Navbar(props) {
+export default function NavbarView(props) {
   const { overrides, ...rest } = props;
   const iconAndTitleOnClick = useNavigateAction({ type: "url", url: "/" });
   const logoutOnClick = useAuthSignOutAction({ global: false });
@@ -28,7 +28,7 @@ export default function Navbar(props) {
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(155,183,214,1)"
       {...rest}
-      {...getOverrideProps(overrides, "Navbar")}
+      {...getOverrideProps(overrides, "NavbarView")}
     >
       <Flex
         gap="10px"

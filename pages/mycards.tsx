@@ -1,4 +1,4 @@
-import { AmplifyProvider, Authenticator } from "@aws-amplify/ui-react";
+import { Authenticator } from "@aws-amplify/ui-react";
 import { Hub } from "aws-amplify";
 import { useState } from "react";
 import Modal from "react-modal";
@@ -9,7 +9,7 @@ import { customStyles } from "../src/layout/modalStyle";
 import {
   CardSetCreateView,
   CardSetViewCollection,
-  Pluscircle,
+  Pluscircle
 } from "../src/ui-components";
 import TabbarMyCardsChosenView from "../src/ui-components/TabbarMyCardsChosenView";
 
@@ -28,7 +28,6 @@ const Home = () => {
   });
   return (
     <Authenticator>
-      <AmplifyProvider>
         <Layout>
           <>
             <Center>
@@ -68,7 +67,6 @@ const Home = () => {
             </Center>
           </>
         </Layout>
-      </AmplifyProvider>
     </Authenticator>
   );
 };
