@@ -41,6 +41,27 @@
     "thirdPartyAuth": false,
     "authProviders": [],
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [],
+    "hostedUI": true,
+    "hostedUIDomainName": "1yljhkuszl3b",
+    "authProvidersUserPool": [
+      "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid profile\",\"AttributeMapping\":{\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://main.d1h4jgcdasqwid.amplifyapp.com/\"],\"LogoutURLs\":[\"https://main.d1h4jgcdasqwid.amplifyapp.com/\"]}"
   }
 }
