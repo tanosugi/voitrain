@@ -180,6 +180,63 @@ export default function CardSetView(props) {
           {...getOverrideProps(overrides, "Vector35512516")}
         ></Icon>
       </View>
+      <Text
+        fontFamily="Inter"
+        fontSize="10px"
+        fontWeight="400"
+        color="rgba(0,0,0,1)"
+        lineHeight="15px"
+        textAlign="center"
+        display="flex"
+        direction="column"
+        justifyContent="flex-start"
+        width="50px"
+        position="absolute"
+        top="107px"
+        left="151px"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="practice"
+        {...getOverrideProps(overrides, "practice")}
+      ></Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="10px"
+        fontWeight="400"
+        color="rgba(0,0,0,1)"
+        lineHeight="15px"
+        textAlign="center"
+        display="flex"
+        direction="column"
+        justifyContent="flex-start"
+        width="29px"
+        position="absolute"
+        top="107px"
+        left="203px"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="edit"
+        {...getOverrideProps(overrides, "edit")}
+      ></Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="10px"
+        fontWeight="400"
+        color="rgba(0,0,0,1)"
+        lineHeight="15px"
+        textAlign="center"
+        display="flex"
+        direction="column"
+        justifyContent="flex-start"
+        width="38px"
+        position="absolute"
+        top="107px"
+        left="241px"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="delete"
+        {...getOverrideProps(overrides, "deleteText")}
+      ></Text>
     </View>
   );
 }

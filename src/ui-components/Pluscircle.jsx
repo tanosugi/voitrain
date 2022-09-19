@@ -7,15 +7,17 @@
 /* eslint-disable */
 import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Flex, Icon } from "@aws-amplify/ui-react";
+import { Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function Pluscircle(props) {
   const { overrides, ...rest } = props;
   return (
     <Flex
-      gap="10px"
-      width="38.5px"
-      height="38.5px"
-      alignItems="flex-start"
+      gap="0"
+      direction="column"
+      width="38px"
+      height="49px"
+      justifyContent="center"
+      alignItems="center"
       position="relative"
       padding="3px 3px 3px 3px"
       {...rest}
@@ -36,6 +38,23 @@ export default function Pluscircle(props) {
         position="relative"
         {...getOverrideProps(overrides, "Vector")}
       ></Icon>
+      <Text
+        fontFamily="Inter"
+        fontSize="10px"
+        fontWeight="400"
+        color="rgba(0,0,0,1)"
+        lineHeight="15px"
+        textAlign="center"
+        display="flex"
+        direction="column"
+        justifyContent="flex-start"
+        shrink="0"
+        position="relative"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="add card"
+        {...getOverrideProps(overrides, "add card")}
+      ></Text>
     </Flex>
   );
 }

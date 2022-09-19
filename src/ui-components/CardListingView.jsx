@@ -105,6 +105,26 @@ export default function CardListingView(props) {
           {...getOverrideProps(overrides, "Vector35512523")}
         ></Icon>
       </View>
+      <Text
+        fontFamily="Inter"
+        fontSize="10px"
+        fontWeight="400"
+        color="rgba(0,0,0,1)"
+        lineHeight="15px"
+        textAlign="left"
+        display="flex"
+        direction="column"
+        justifyContent="flex-start"
+        position="absolute"
+        top="64%"
+        bottom="16%"
+        left="87.54%"
+        right="2.62%"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="delete"
+        {...getOverrideProps(overrides, "deleteText")}
+      ></Text>
       <View
         position="absolute"
         top="28%"
@@ -173,6 +193,46 @@ export default function CardListingView(props) {
           {...getOverrideProps(overrides, "Vector36122560")}
         ></Icon>
       </View>
+      <Text
+        fontFamily="Inter"
+        fontSize="10px"
+        fontWeight="400"
+        color="rgba(0,0,0,1)"
+        lineHeight="10px"
+        textAlign="center"
+        display="flex"
+        direction="column"
+        justifyContent="flex-start"
+        position="absolute"
+        top="66.67%"
+        bottom="6.67%"
+        left="60.98%"
+        right="27.87%"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="update&#xA;image"
+        {...getOverrideProps(overrides, "update image")}
+      ></Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="10px"
+        fontWeight="400"
+        color="rgba(0,0,0,1)"
+        lineHeight="15px"
+        textAlign="left"
+        display="flex"
+        direction="column"
+        justifyContent="flex-start"
+        position="absolute"
+        top="65.33%"
+        bottom="14.67%"
+        left="76.39%"
+        right="17.38%"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="edit"
+        {...getOverrideProps(overrides, "edit")}
+      ></Text>
     </View>
   );
 }

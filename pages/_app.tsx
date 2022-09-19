@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import config from "../src/aws-exports";
 import { studioTheme } from "../src/ui-components";
 
+
 Amplify.configure(config);
 
 function MyApp({ Component, pageProps }: AppProps) {
