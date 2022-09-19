@@ -74,10 +74,10 @@ export default function FeatureSmallView(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Get started right away with a preset card set of fruits, body parts, and more. After listening to the pronunciation, you can pronounce it yourself to check if your pronunciation is correct."
+          children="Get started right away with a preset card set of fruits, body parts. After listening to the pronunciation, you can pronounce it by yourself to check if your pronunciation is correct."
           {...getOverrideProps(
             overrides,
-            "Get started right away with a preset card set of fruits, body parts, and more. After listening to the pronunciation, you can pronounce it yourself to check if your pronunciation is correct."
+            "Get started right away with a preset card set of fruits, body parts. After listening to the pronunciation, you can pronounce it by yourself to check if your pronunciation is correct."
           )}
         ></Text>
         <Flex
@@ -156,10 +156,10 @@ export default function FeatureSmallView(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="You can create a card set by grouping the words you want to practice. The created card set can be used in the same way as the preset. After listening to the pronunciation of a word, you can pronounce it yourself to see if it matches."
+          children="You can create a card set for the words you want to practice. The created card set can be used in the same way as the preset. After listening to the pronunciation of a word, you can pronounce it by yourself to see if it matches.&#xA;You can change picture by input url or just click “update image” icon to obtain random photo from unsplash.com."
           {...getOverrideProps(
             overrides,
-            "You can create a card set by grouping the words you want to practice. The created card set can be used in the same way as the preset. After listening to the pronunciation of a word, you can pronounce it yourself to see if it matches."
+            "You can create a card set for the words you want to practice. The created card set can be used in the same way as the preset. After listening to the pronunciation of a word, you can pronounce it by yourself to see if it matches. You can change picture by input url or just click \u201Cupdate image\u201D icon to obtain random photo from unsplash.com."
           )}
         ></Text>
         <Flex

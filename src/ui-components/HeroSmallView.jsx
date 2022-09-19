@@ -13,7 +13,7 @@ import {
 import { Button, Flex, Image, Text, View } from "@aws-amplify/ui-react";
 export default function HeroSmallView(props) {
   const { overrides, ...rest } = props;
-  const buttonOnClick = useNavigateAction({ type: "url", url: "/mycards" });
+  const buttonOnClick = useNavigateAction({ type: "url", url: "/preset" });
   return (
     <View
       width="320px"
@@ -107,10 +107,10 @@ export default function HeroSmallView(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Repetition is the best way to remember English words. With Voitrain, you can memorize words using a preset card set and a card set you create yourself."
+            children="Repetition is the best way to remember English words. With Voitrain, you can memorize words using a preset card set and a card set you create by yourself."
             {...getOverrideProps(
               overrides,
-              "Repetition is the best way to remember English words. With Voitrain, you can memorize words using a preset card set and a card set you create yourself."
+              "Repetition is the best way to remember English words. With Voitrain, you can memorize words using a preset card set and a card set you create by yourself."
             )}
           ></Text>
           <Flex

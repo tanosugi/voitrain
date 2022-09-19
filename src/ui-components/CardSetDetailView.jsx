@@ -139,12 +139,12 @@ export default function CardSetDetailView(props) {
           {...getOverrideProps(overrides, "practice")}
         ></Text>
         <Icon
-          width="16.041671752929688px"
+          width="16.04168701171875px"
           height="20.416664123535156px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 16.041671752929688,
+            width: 16.04168701171875,
             height: 20.416664123535156,
           }}
           paths={[
@@ -194,12 +194,12 @@ export default function CardSetDetailView(props) {
           {...getOverrideProps(overrides, "deleteText")}
         ></Text>
         <Icon
-          width="20.416656494140625px"
+          width="20.41668701171875px"
           height="26.25px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 20.416656494140625,
+            width: 20.41668701171875,
             height: 26.25,
           }}
           paths={[
@@ -266,12 +266,12 @@ export default function CardSetDetailView(props) {
           {...getOverrideProps(overrides, "edit")}
         ></Text>
         <Icon
-          width="24.003326416015625px"
+          width="24.00335693359375px"
           height="24.003334045410156px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 24.003326416015625,
+            width: 24.00335693359375,
             height: 24.003334045410156,
           }}
           paths={[

@@ -62,12 +62,12 @@ export default function NavbarView(props) {
           >
             <Icon
               width="12.49017333984375px"
-              height="12.481353759765625px"
+              height="12.4813232421875px"
               viewBox={{
                 minX: 0,
                 minY: 0,
                 width: 12.49017333984375,
-                height: 12.481353759765625,
+                height: 12.4813232421875,
               }}
               paths={[
                 {
@@ -85,12 +85,12 @@ export default function NavbarView(props) {
             ></Icon>
             <Icon
               width="16.84954833984375px"
-              height="16.853424072265625px"
+              height="16.8533935546875px"
               viewBox={{
                 minX: 0,
                 minY: 0,
                 width: 16.84954833984375,
-                height: 16.853424072265625,
+                height: 16.8533935546875,
               }}
               paths={[
                 {
@@ -149,13 +149,13 @@ export default function NavbarView(props) {
           {...getOverrideProps(overrides, "logout")}
         >
           <Icon
-            width="16.743743896484375px"
-            height="18.849212646484375px"
+            width="16.7437744140625px"
+            height="18.84918212890625px"
             viewBox={{
               minX: 0,
               minY: 0,
-              width: 16.743743896484375,
-              height: 18.849212646484375,
+              width: 16.7437744140625,
+              height: 18.84918212890625,
             }}
             paths={[
               {
@@ -186,12 +186,12 @@ export default function NavbarView(props) {
         >
           <Icon
             width="20.5625px"
-            height="20.833328247070312px"
+            height="20.83331298828125px"
             viewBox={{
               minX: 0,
               minY: 0,
               width: 20.5625,
-              height: 20.833328247070312,
+              height: 20.83331298828125,
             }}
             paths={[
               {

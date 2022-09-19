@@ -87,9 +87,9 @@ export default function CardListingView(props) {
         {...getOverrideProps(overrides, "delete")}
       >
         <Icon
-          width="18.666656494140625px"
+          width="18.66668701171875px"
           height="24px"
-          viewBox={{ minX: 0, minY: 0, width: 18.666656494140625, height: 24 }}
+          viewBox={{ minX: 0, minY: 0, width: 18.66668701171875, height: 24 }}
           paths={[
             {
               d: "M18.6667 1.33333L14 1.33333L12.6667 0L6 0L4.66667 1.33333L0 1.33333L0 4L18.6667 4M1.33333 21.3333C1.33333 22.0406 1.61428 22.7189 2.11438 23.219C2.61448 23.719 3.29276 24 4 24L14.6667 24C15.3739 24 16.0522 23.719 16.5523 23.219C17.0524 22.7189 17.3333 22.0406 17.3333 21.3333L17.3333 5.33333L1.33333 5.33333L1.33333 21.3333Z",
@@ -136,12 +136,12 @@ export default function CardListingView(props) {
         {...getOverrideProps(overrides, "pencil")}
       >
         <Icon
-          width="24.003326416015625px"
+          width="24.00335693359375px"
           height="24.003334045410156px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 24.003326416015625,
+            width: 24.00335693359375,
             height: 24.003334045410156,
           }}
           paths={[
@@ -170,12 +170,12 @@ export default function CardListingView(props) {
         {...getOverrideProps(overrides, "refresh")}
       >
         <Icon
-          width="22.666671752929688px"
+          width="22.66668701171875px"
           height="22.66666603088379px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 22.666671752929688,
+            width: 22.66668701171875,
             height: 22.66666603088379,
           }}
           paths={[

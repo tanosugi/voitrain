@@ -71,13 +71,13 @@ export default function PresetCardsView(props) {
         {...getOverrideProps(overrides, "play")}
       >
         <Icon
-          width="13.291671752929688px"
-          height="16.916671752929688px"
+          width="13.291656494140625px"
+          height="16.91668701171875px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 13.291671752929688,
-            height: 16.916671752929688,
+            width: 13.291656494140625,
+            height: 16.91668701171875,
           }}
           paths={[
             {

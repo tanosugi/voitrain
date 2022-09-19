@@ -5,7 +5,7 @@
   "scripts": {
     "pull": "amplify pull",
     "dev": "next dev",
-    "pull-build-and-start": "next pull && sudo lsof -t -i tcp:3000 | xargs kill -9 || echo nothing to kill in tcp 3000; next build && next start",
+    "pull-build-and-start": "amplify pull && sudo lsof -t -i tcp:3000 | xargs kill -9 || echo nothing to kill in tcp 3000; next build && next start",
     "build-and-start": "sudo lsof -t -i tcp:3000 | xargs kill -9 || echo nothing to kill in tcp 3000; next build && next start",
     "build": "next build",
     "start": "next start",

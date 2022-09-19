@@ -6,10 +6,14 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function CardView(props) {
   const { card, overrides, ...rest } = props;
+  const closeOnClick = useNavigateAction({ type: "url", url: "/mycards" });
   return (
     <View
       width="241.03px"
@@ -84,12 +88,12 @@ export default function CardView(props) {
       >
         <Icon
           width="20.41668701171875px"
-          height="27.708328247070312px"
+          height="27.708343505859375px"
           viewBox={{
             minX: 0,
             minY: 0,
             width: 20.41668701171875,
-            height: 27.708328247070312,
+            height: 27.708343505859375,
           }}
           paths={[
             {
@@ -118,12 +122,12 @@ export default function CardView(props) {
       >
         <Icon
           width="26.25px"
-          height="25.57917022705078px"
+          height="25.57916259765625px"
           viewBox={{
             minX: 0,
             minY: 0,
             width: 26.25,
-            height: 25.57917022705078,
+            height: 25.57916259765625,
           }}
           paths={[
             {
@@ -188,6 +192,9 @@ export default function CardView(props) {
         right="0.01%"
         padding="0px 0px 0px 0px"
         backgroundColor="rgba(255,255,255,0.8)"
+        onClick={() => {
+          closeOnClick();
+        }}
         {...getOverrideProps(overrides, "close")}
       >
         <Icon

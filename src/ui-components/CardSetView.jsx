@@ -73,12 +73,12 @@ export default function CardSetView(props) {
         {...getOverrideProps(overrides, "Delete")}
       >
         <Icon
-          width="12.833335876464844px"
+          width="12.833343505859375px"
           height="16.5px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 12.833335876464844,
+            width: 12.833343505859375,
             height: 16.5,
           }}
           paths={[
@@ -120,13 +120,13 @@ export default function CardSetView(props) {
         {...getOverrideProps(overrides, "play")}
       >
         <Icon
-          width="13.291671752929688px"
-          height="16.916667938232422px"
+          width="13.291656494140625px"
+          height="16.91666603088379px"
           viewBox={{
             minX: 0,
             minY: 0,
-            width: 13.291671752929688,
-            height: 16.916667938232422,
+            width: 13.291656494140625,
+            height: 16.91666603088379,
           }}
           paths={[
             {
@@ -158,12 +158,12 @@ export default function CardSetView(props) {
       >
         <Icon
           width="18.00250244140625px"
-          height="18.00250244140625px"
+          height="18.002500534057617px"
           viewBox={{
             minX: 0,
             minY: 0,
             width: 18.00250244140625,
-            height: 18.00250244140625,
+            height: 18.002500534057617,
           }}
           paths={[
             {

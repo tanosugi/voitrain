@@ -5,8 +5,8 @@
  **************************************************************************/
 
 import React from "react";
-import { Card } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { Card } from "../models";
 import { ViewProps } from "@aws-amplify/ui-react";
 export declare type CardViewProps = React.PropsWithChildren<Partial<ViewProps> & {
     card?: Card;
