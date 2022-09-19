@@ -82,6 +82,7 @@ export default function CardSetDetailView(props) {
         top="0px"
         left="285px"
         padding="0px 0px 0px 0px"
+        backgroundColor="rgba(255,255,255,0.8)"
         onClick={() => {
           closeOnClick();
         }}
@@ -309,7 +310,7 @@ export default function CardSetDetailView(props) {
           direction="column"
           justifyContent="flex-start"
           position="absolute"
-          top="31px"
+          top="29px"
           left="0px"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
@@ -328,8 +329,8 @@ export default function CardSetDetailView(props) {
             },
           ]}
           position="absolute"
-          top="15.91%"
-          bottom="20.45%"
+          top="6.82%"
+          bottom="29.55%"
           left="28.36%"
           right="29.85%"
           {...getOverrideProps(overrides, "Vector36092552")}

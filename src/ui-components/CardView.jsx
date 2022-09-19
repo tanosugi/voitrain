@@ -16,7 +16,7 @@ export default function CardView(props) {
       height="391px"
       position="relative"
       padding="0px 0px 0px 0px"
-      backgroundColor="rgba(217,217,217,1)"
+      backgroundColor="rgba(230,238,254,1)"
       {...rest}
       {...getOverrideProps(overrides, "CardView")}
     >
@@ -180,6 +180,35 @@ export default function CardView(props) {
         children="rec for check"
         {...getOverrideProps(overrides, "TextRec")}
       ></Text>
+      <View
+        position="absolute"
+        top="0%"
+        bottom="91.05%"
+        left="85.47%"
+        right="0.01%"
+        padding="0px 0px 0px 0px"
+        backgroundColor="rgba(255,255,255,0.8)"
+        {...getOverrideProps(overrides, "close")}
+      >
+        <Icon
+          width="35px"
+          height="35px"
+          viewBox={{ minX: 0, minY: 0, width: 35, height: 35 }}
+          paths={[
+            {
+              d: "M17.5 0C7.8225 0 0 7.8225 0 17.5C0 27.1775 7.8225 35 17.5 35C27.1775 35 35 27.1775 35 17.5C35 7.8225 27.1775 0 17.5 0ZM26.25 23.7825L23.7825 26.25L17.5 19.9675L11.2175 26.25L8.75 23.7825L15.0325 17.5L8.75 11.2175L11.2175 8.75L17.5 15.0325L23.7825 8.75L26.25 11.2175L19.9675 17.5L26.25 23.7825Z",
+              fill: "rgba(0,0,0,1)",
+              fillRule: "nonzero",
+            },
+          ]}
+          position="absolute"
+          top="0%"
+          bottom="0%"
+          left="0%"
+          right="0%"
+          {...getOverrideProps(overrides, "Vector36722758")}
+        ></Icon>
+      </View>
     </View>
   );
 }

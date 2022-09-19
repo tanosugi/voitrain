@@ -48,6 +48,7 @@ export default function Pluscircle(props) {
         display="flex"
         direction="column"
         justifyContent="flex-start"
+        width="55px"
         shrink="0"
         position="relative"
         padding="0px 0px 0px 0px"

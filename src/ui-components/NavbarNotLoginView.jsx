@@ -26,7 +26,7 @@ export default function NavbarNotLoginView(props) {
         left="0%"
         right="0%"
         padding="0px 0px 0px 0px"
-        backgroundColor="rgba(155,183,214,1)"
+        backgroundColor="rgba(64,106,191,1)"
         {...getOverrideProps(overrides, "NavbarView")}
       >
         <Flex

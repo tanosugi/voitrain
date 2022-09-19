@@ -26,7 +26,7 @@ export default function NavbarView(props) {
       height="52px"
       position="relative"
       padding="0px 0px 0px 0px"
-      backgroundColor="rgba(155,183,214,1)"
+      backgroundColor="rgba(64,106,191,1)"
       {...rest}
       {...getOverrideProps(overrides, "NavbarView")}
     >

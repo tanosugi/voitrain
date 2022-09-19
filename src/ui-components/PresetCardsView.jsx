@@ -23,7 +23,7 @@ export default function PresetCardsView(props) {
       height="145px"
       position="relative"
       padding="0px 0px 0px 0px"
-      backgroundColor="rgba(217,217,217,1)"
+      backgroundColor="rgba(230,238,254,1)"
       {...rest}
       {...getOverrideProps(overrides, "PresetCardsView")}
     >
@@ -82,7 +82,7 @@ export default function PresetCardsView(props) {
           paths={[
             {
               d: "M0 0L0 16.9167L13.2917 8.45833L0 0Z",
-              fill: "rgba(0,0,0,1)",
+              fill: "rgba(4,52,149,1)",
               fillRule: "nonzero",
             },
           ]}

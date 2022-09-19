@@ -38,7 +38,7 @@ export default function CardListingView(props) {
         left="0%"
         right="0%"
         padding="0px 0px 0px 0px"
-        backgroundColor="rgba(255,255,255,1)"
+        backgroundColor="rgba(230,238,254,1)"
         {...getOverrideProps(overrides, "Rectangle")}
       ></View>
       <Image
