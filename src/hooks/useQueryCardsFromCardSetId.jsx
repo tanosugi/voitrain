@@ -2,6 +2,7 @@ import { DataStore, SortDirection } from "aws-amplify";
 import useAxios from "axios-hooks";
 import { useEffect, useState } from "react";
 import { Card } from "../models";
+import { unsplashApiKeyRandom } from "../utils/envvar";
 
 const useQueryCardsFromCardSetId = (cardSetId) => {
   const [cards, setCards] = useState([]);
@@ -14,7 +15,7 @@ const useQueryCardsFromCardSetId = (cardSetId) => {
       "https://api.unsplash.com/photos/random?query=" +
       (cards?.length > 0 && cards[index]?.word) +
       "&client_id=" +
-      "mY-igiaeuryUGjej_u6W2NK7WLYXTnihV1G_0Cqq0Pc",
+      unsplashApiKeyRandom,
   });
   const fetchCards = async () => {
     if (cardSetId) {

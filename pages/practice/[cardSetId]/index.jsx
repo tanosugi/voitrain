@@ -17,7 +17,9 @@ const Home = () => {
   const { cardSetId } = router.query;
   const { cards } = useQueryCardsFromCardSetId(cardSetId);
   const [wordInData, setWordInData] = useState("");
-  const [response, setResponse] = useState("_ _ _ _");
+  const [response, setResponse] = useState(
+    "<- Click microphone and record your voice!"
+  );
   const [isRecording, setIsRecording] = useState(false);
   const [recording, setRecording] = useState(false);
   const [micStream, setMicStream] = useState();
@@ -102,7 +104,7 @@ const Home = () => {
           const audio = new Audio("/sounds/incorrectAnswer.mp3");
           audio.play();
         }
-        console.log(fullText);
+        console.log("text:", fullText);
       })
       .catch((err) => {
         console.error(["err", err]);

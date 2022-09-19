@@ -2,21 +2,20 @@ import { DataStore } from "aws-amplify";
 import useAxios from "axios-hooks";
 import { useEffect, useState } from "react";
 import { CardSet } from "../models";
+import { unsplashApiKeyRandom } from "../utils/envvar";
 
 const useQueryCardsFromCardSetId = (cardSetId: string) => {
   const [cardSet, setCardSet] = useState<CardSet>();
   const [
     { data: unsplashData, loading: unsplashLoading, error: unsplashError },
     executeUnsplash,
-  ] = useAxios(
-    {
-      url:
-        "https://api.unsplash.com/photos/random?query=" +
-        cardSet?.name +
-        "&client_id=" +
-        "mY-igiaeuryUGjej_u6W2NK7WLYXTnihV1G_0Cqq0Pc",
-    },
-  );
+  ] = useAxios({
+    url:
+      "https://api.unsplash.com/photos/random?query=" +
+      cardSet?.name +
+      "&client_id=" +
+      unsplashApiKeyRandom,
+  });
   const fetchCards = async () => {
     if (cardSetId) {
       const respCardSet = await DataStore.query(CardSet, cardSetId);
