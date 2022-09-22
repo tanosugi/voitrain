@@ -6,7 +6,7 @@ import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import config from "../src/aws-exports";
 import { studioTheme } from "../src/ui-components";
-
+import { GoogleAnalytics } from "../src/utils/gtag";
 
 Amplify.configure(config);
 
@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <AmplifyProvider theme={studioTheme}>
+      <GoogleAnalytics />
       <Component {...pageProps} />
     </AmplifyProvider>
   );
