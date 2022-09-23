@@ -5,7 +5,6 @@ import NavbarView from "../ui-components/Navbar";
 
 const Layout: FC<{ children: ReactElement }> = ({ children }): ReactElement => {
   const { user, signOut } = useAuthenticator((context) => [context.user]);
-  console.log("user:", user);
   useEffect(() => {
     LogRocket.identify(user?.attributes?.email || "anonymous user");
   }, [user]);
