@@ -9,7 +9,7 @@ import { customStyles } from "../src/layout/modalStyle";
 import {
   CardSetCreateView,
   CardSetViewCollection,
-  Pluscircle
+  Pluscircle,
 } from "../src/ui-components";
 import TabbarMyCardsChosenView from "../src/ui-components/TabbarMyCardsChosenView";
 
@@ -28,45 +28,42 @@ const Home = () => {
   });
   return (
     <Authenticator>
-        <Layout>
-          <>
-            <Center>
-              <TabbarMyCardsChosenView />
-            </Center>
-            <Center>
-              <Pluscircle
-                overrides={{
-                  Pluscircle: {
-                    onClick: () => {
-                      setModalToOpen("CardCreateView");
-                    },
-                    margin: "20px 0px 20px 0px",
+      <Layout>
+        <>
+          <Center>
+            <TabbarMyCardsChosenView />
+          </Center>
+          <Center>
+            <Pluscircle
+              overrides={{
+                Pluscircle: {
+                  onClick: () => {
+                    setModalToOpen("CardCreateView");
                   },
-                }}
-              />
-            </Center>
-            <Modal
-              isOpen={modalToOpen == "CardCreateView"}
-              style={customStyles}
-            >
-              <Center>
-                {cardSet && (
-                  <CardSetCreateView
-                    cardSet={cardSet}
-                    overrides={{
-                      close: {
-                        onClick: () => setModalToOpen(""),
-                      },
-                    }}
-                  />
-                )}
-              </Center>
-            </Modal>
+                  margin: "20px 0px 20px 0px",
+                },
+              }}
+            />
+          </Center>
+          <Modal isOpen={modalToOpen == "CardCreateView"} style={customStyles}>
             <Center>
-              <CardSetViewCollection />
+              {cardSet && (
+                <CardSetCreateView
+                  cardSet={cardSet}
+                  overrides={{
+                    close: {
+                      onClick: () => setModalToOpen(""),
+                    },
+                  }}
+                />
+              )}
             </Center>
-          </>
-        </Layout>
+          </Modal>
+          <Center>
+            <CardSetViewCollection />
+          </Center>
+        </>
+      </Layout>
     </Authenticator>
   );
 };
