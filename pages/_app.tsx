@@ -1,5 +1,5 @@
 import { AmazonAIPredictionsProvider } from "@aws-amplify/predictions";
-import { AmplifyProvider } from "@aws-amplify/ui-react";
+import { AmplifyProvider, Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { Amplify } from "aws-amplify";
 import LogRocket from "logrocket";
@@ -29,8 +29,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <AmplifyProvider theme={studioTheme}>
-      <GoogleAnalytics />
-      <Component {...pageProps} />
+      <Authenticator.Provider>
+        <GoogleAnalytics />
+        <Component {...pageProps} />
+      </Authenticator.Provider>
     </AmplifyProvider>
   );
 }
