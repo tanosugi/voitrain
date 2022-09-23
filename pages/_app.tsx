@@ -14,18 +14,17 @@ import { GoogleAnalytics } from "../src/utils/gtag";
 // const LogRocket = require('logrocket');
 // const setupLogRocketReact = require('logrocket-react');
 
-// only initialize when in the browser
-if (typeof window !== "undefined") {
-  LogRocket.init("oheadl/voitrain-main");
-  // plugins should also only be initialized when in the browser
-  setupLogRocketReact(LogRocket);
-}
-
 Amplify.configure(config);
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     Amplify.addPluggable(new AmazonAIPredictionsProvider());
+    // only initialize when in the browser
+    if (typeof window !== "undefined") {
+      LogRocket.init("oheadl/voitrain-main");
+      // plugins should also only be initialized when in the browser
+      setupLogRocketReact(LogRocket);
+    }
   }, []);
   return (
     <AmplifyProvider theme={studioTheme}>
