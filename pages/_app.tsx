@@ -12,6 +12,7 @@ import { GoogleAnalytics } from "../src/utils/gtag";
 
 // you can import these packages anywhere
 // const LogRocket = require('logrocket');
+
 // const setupLogRocketReact = require('logrocket-react');
 
 Amplify.configure(config);
