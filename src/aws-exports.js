@@ -20,7 +20,7 @@ const awsmobile = {
             "aws.cognito.signin.user.admin"
         ],
         "redirectSignIn": "https://voitrain.tanosugi.net/preset",
-        "redirectSignOut": "https://voitrain.net/",
+        "redirectSignOut": "https://voitrain.tanosugi.net/",
         "responseType": "code"
     },
     "federationTarget": "COGNITO_USER_POOLS",
