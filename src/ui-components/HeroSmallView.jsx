@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import {
   getOverrideProps,
   useNavigateAction,
@@ -20,8 +20,8 @@ export default function HeroSmallView(props) {
       height="532px"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "HeroSmallView")}
+      {...rest}
     >
       <Flex
         gap="24px"

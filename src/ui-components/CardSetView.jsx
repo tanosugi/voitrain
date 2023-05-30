@@ -5,20 +5,20 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
+import { CardSet } from "../models";
 import {
   getOverrideProps,
   useDataStoreDeleteAction,
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
-import { CardSet } from "../models";
 import { schema } from "../models/schema";
 import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function CardSetView(props) {
   const { cardSet, overrides, ...rest } = props;
   const deleteOnClick = useDataStoreDeleteAction({
-    id: cardSet?.id,
     model: CardSet,
+    id: cardSet?.id,
     schema: schema,
   });
   const playOnClick = useNavigateAction({
@@ -36,8 +36,8 @@ export default function CardSetView(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(230,238,254,1)"
-      {...rest}
       {...getOverrideProps(overrides, "CardSetView")}
+      {...rest}
     >
       <Text
         fontFamily="Inter"

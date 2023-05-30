@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function Pluscircle(props) {
@@ -20,8 +20,8 @@ export default function Pluscircle(props) {
       alignItems="center"
       position="relative"
       padding="3px 3px 3px 3px"
-      {...rest}
       {...getOverrideProps(overrides, "Pluscircle")}
+      {...rest}
     >
       <Icon
         width="32.5px"

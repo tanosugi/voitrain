@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import {
   getOverrideProps,
   useNavigateAction,
@@ -24,8 +24,8 @@ export default function PresetCardsView(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(230,238,254,1)"
-      {...rest}
       {...getOverrideProps(overrides, "PresetCardsView")}
+      {...rest}
     >
       <Text
         fontFamily="Inter"

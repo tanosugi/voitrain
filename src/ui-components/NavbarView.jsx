@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import {
   getOverrideProps,
   useAuthSignOutAction,
@@ -27,8 +27,8 @@ export default function NavbarView(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(64,106,191,1)"
-      {...rest}
       {...getOverrideProps(overrides, "NavbarView")}
+      {...rest}
     >
       <Flex
         gap="10px"

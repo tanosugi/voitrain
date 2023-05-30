@@ -4,10 +4,16 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
+import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps } from "@aws-amplify/ui-react";
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type PluscircleOverridesProps = {
+    Pluscircle?: PrimitiveOverrideProps<FlexProps>;
+    Vector?: PrimitiveOverrideProps<IconProps>;
+    "add card"?: PrimitiveOverrideProps<TextProps>;
+} & EscapeHatchProps;
 export declare type PluscircleProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: EscapeHatchProps | undefined | null;
+    overrides?: PluscircleOverridesProps | undefined | null;
 }>;
 export default function Pluscircle(props: PluscircleProps): React.ReactElement;

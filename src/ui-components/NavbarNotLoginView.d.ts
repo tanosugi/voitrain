@@ -4,10 +4,21 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
+import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type NavbarNotLoginViewOverridesProps = {
+    NavbarNotLoginView?: PrimitiveOverrideProps<ViewProps>;
+    NavbarView?: PrimitiveOverrideProps<ViewProps>;
+    IconAndTitle?: PrimitiveOverrideProps<FlexProps>;
+    micIcon?: PrimitiveOverrideProps<ViewProps>;
+    Group?: PrimitiveOverrideProps<ViewProps>;
+    Vector36372587?: PrimitiveOverrideProps<IconProps>;
+    Vector36372588?: PrimitiveOverrideProps<IconProps>;
+    Voitrain?: PrimitiveOverrideProps<TextProps>;
+} & EscapeHatchProps;
 export declare type NavbarNotLoginViewProps = React.PropsWithChildren<Partial<ViewProps> & {
-    overrides?: EscapeHatchProps | undefined | null;
+    overrides?: NavbarNotLoginViewOverridesProps | undefined | null;
 }>;
 export default function NavbarNotLoginView(props: NavbarNotLoginViewProps): React.ReactElement;

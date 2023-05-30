@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function NavbarNotLoginView(props) {
@@ -16,8 +16,8 @@ export default function NavbarNotLoginView(props) {
       height="52px"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "NavbarNotLoginView")}
+      {...rest}
     >
       <View
         position="absolute"

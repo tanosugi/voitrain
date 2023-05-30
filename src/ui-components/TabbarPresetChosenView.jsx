@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import {
   getOverrideProps,
   useNavigateAction,
@@ -20,8 +20,8 @@ export default function TabbarPresetChosenView(props) {
       height="43px"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "TabbarPresetChosenView")}
+      {...rest}
     >
       <View
         padding="0px 0px 0px 0px"

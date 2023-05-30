@@ -19,7 +19,7 @@ const awsmobile = {
             "profile",
             "aws.cognito.signin.user.admin"
         ],
-        "redirectSignIn": "https://voitrain.net/preset",
+        "redirectSignIn": "https://voitrain.tanosugi.net/preset",
         "redirectSignOut": "https://voitrain.net/",
         "responseType": "code"
     },
@@ -44,19 +44,19 @@ const awsmobile = {
     ],
     "predictions": {
         "convert": {
-            "transcription": {
-                "region": "ap-northeast-1",
-                "proxy": false,
-                "defaults": {
-                    "language": "en-US"
-                }
-            },
             "speechGenerator": {
                 "region": "ap-northeast-1",
                 "proxy": false,
                 "defaults": {
                     "VoiceId": "Kevin",
                     "LanguageCode": "en-US"
+                }
+            },
+            "transcription": {
+                "region": "ap-northeast-1",
+                "proxy": false,
+                "defaults": {
+                    "language": "en-US"
                 }
             }
         }

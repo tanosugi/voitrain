@@ -1,4 +1,6 @@
 import { ModelInit, MutableModel } from "@aws-amplify/datastore";
+// @ts-ignore
+import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 type PresetCardSetMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
@@ -12,33 +14,70 @@ type CardMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-export declare class PresetCardSet {
+type EagerPresetCardSet = {
   readonly id: string;
   readonly name?: string | null;
   readonly image_url?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  constructor(init: ModelInit<PresetCardSet, PresetCardSetMetaData>);
-  static copyOf(source: PresetCardSet, mutator: (draft: MutableModel<PresetCardSet, PresetCardSetMetaData>) => MutableModel<PresetCardSet, PresetCardSetMetaData> | void): PresetCardSet;
 }
 
-export declare class CardSet {
+type LazyPresetCardSet = {
   readonly id: string;
   readonly name?: string | null;
   readonly image_url?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  constructor(init: ModelInit<CardSet, CardSetMetaData>);
-  static copyOf(source: CardSet, mutator: (draft: MutableModel<CardSet, CardSetMetaData>) => MutableModel<CardSet, CardSetMetaData> | void): CardSet;
 }
 
-export declare class Card {
+export declare type PresetCardSet = LazyLoading extends LazyLoadingDisabled ? EagerPresetCardSet : LazyPresetCardSet
+
+export declare const PresetCardSet: (new (init: ModelInit<PresetCardSet, PresetCardSetMetaData>) => PresetCardSet) & {
+  copyOf(source: PresetCardSet, mutator: (draft: MutableModel<PresetCardSet, PresetCardSetMetaData>) => MutableModel<PresetCardSet, PresetCardSetMetaData> | void): PresetCardSet;
+}
+
+type EagerCardSet = {
+  readonly id: string;
+  readonly name?: string | null;
+  readonly image_url?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyCardSet = {
+  readonly id: string;
+  readonly name?: string | null;
+  readonly image_url?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type CardSet = LazyLoading extends LazyLoadingDisabled ? EagerCardSet : LazyCardSet
+
+export declare const CardSet: (new (init: ModelInit<CardSet, CardSetMetaData>) => CardSet) & {
+  copyOf(source: CardSet, mutator: (draft: MutableModel<CardSet, CardSetMetaData>) => MutableModel<CardSet, CardSetMetaData> | void): CardSet;
+}
+
+type EagerCard = {
   readonly id: string;
   readonly word?: string | null;
   readonly image_url?: string | null;
   readonly cardsetID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  constructor(init: ModelInit<Card, CardMetaData>);
-  static copyOf(source: Card, mutator: (draft: MutableModel<Card, CardMetaData>) => MutableModel<Card, CardMetaData> | void): Card;
+}
+
+type LazyCard = {
+  readonly id: string;
+  readonly word?: string | null;
+  readonly image_url?: string | null;
+  readonly cardsetID?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Card = LazyLoading extends LazyLoadingDisabled ? EagerCard : LazyCard
+
+export declare const Card: (new (init: ModelInit<Card, CardMetaData>) => Card) & {
+  copyOf(source: Card, mutator: (draft: MutableModel<Card, CardMetaData>) => MutableModel<Card, CardMetaData> | void): Card;
 }

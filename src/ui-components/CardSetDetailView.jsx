@@ -5,13 +5,13 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
+import { CardSet } from "../models";
 import {
   getOverrideProps,
   useDataStoreDeleteAction,
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
-import { CardSet } from "../models";
 import { schema } from "../models/schema";
 import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function CardSetDetailView(props) {
@@ -22,8 +22,8 @@ export default function CardSetDetailView(props) {
     url: `${"/practice/"}${cardSet?.id}`,
   });
   const deleteOnClick = useDataStoreDeleteAction({
-    id: cardSet?.id,
     model: CardSet,
+    id: cardSet?.id,
     schema: schema,
   });
   return (
@@ -32,8 +32,8 @@ export default function CardSetDetailView(props) {
       height="209px"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "CardSetDetailView")}
+      {...rest}
     >
       <View
         position="absolute"

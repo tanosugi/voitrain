@@ -5,9 +5,9 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { SortDirection } from "@aws-amplify/datastore";
+import * as React from "react";
 import { Card } from "../models";
+import { SortDirection } from "@aws-amplify/datastore";
 import {
   getOverrideProps,
   useDataStoreBinding,
@@ -19,12 +19,19 @@ export default function CardListingViewCollection(props) {
   const itemsPagination = {
     sort: (s) => s.updatedAt(SortDirection.DESCENDING),
   };
+  const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
     model: Card,
     pagination: itemsPagination,
   }).items;
-  const items = itemsProp !== undefined ? itemsProp : itemsDataStore;
+  React.useEffect(() => {
+    if (itemsProp !== undefined) {
+      setItems(itemsProp);
+      return;
+    }
+    setItems(itemsDataStore);
+  }, [itemsProp, itemsDataStore]);
   return (
     <Collection
       type="list"
@@ -34,8 +41,8 @@ export default function CardListingViewCollection(props) {
       direction="column"
       justifyContent="stretch"
       items={items || []}
-      {...rest}
       {...getOverrideProps(overrides, "CardListingViewCollection")}
+      {...rest}
     >
       {(item, index) => (
         <CardListingView

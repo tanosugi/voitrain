@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import { PresetCardSet } from "../models";
 import {
   getOverrideProps,
@@ -15,19 +15,26 @@ import PresetCardsView from "./PresetCardsView";
 import { Collection } from "@aws-amplify/ui-react";
 export default function PresetCardsViewCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
+  const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
     model: PresetCardSet,
   }).items;
-  const items = itemsProp !== undefined ? itemsProp : itemsDataStore;
+  React.useEffect(() => {
+    if (itemsProp !== undefined) {
+      setItems(itemsProp);
+      return;
+    }
+    setItems(itemsDataStore);
+  }, [itemsProp, itemsDataStore]);
   return (
     <Collection
       type="list"
       direction="column"
       justifyContent="stretch"
       items={items || []}
-      {...rest}
       {...getOverrideProps(overrides, "PresetCardsViewCollection")}
+      {...rest}
     >
       {(item, index) => (
         <PresetCardsView

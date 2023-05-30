@@ -1,32 +1,32 @@
 export type AmplifyDependentResourcesAttributes = {
-    "api": {
-        "voitrain": {
-            "GraphQLAPIIdOutput": "string",
-            "GraphQLAPIEndpointOutput": "string"
-        }
-    },
-    "auth": {
-        "voitrain": {
-            "IdentityPoolId": "string",
-            "IdentityPoolName": "string",
-            "HostedUIDomain": "string",
-            "OAuthMetadata": "string",
-            "UserPoolId": "string",
-            "UserPoolArn": "string",
-            "UserPoolName": "string",
-            "AppClientIDWeb": "string",
-            "AppClientID": "string"
-        }
-    },
-    "predictions": {
-        "transcription7ec01d63": {
-            "region": "string",
-            "language": "string"
-        },
-        "speechGenerator6caa14bd": {
-            "region": "string",
-            "language": "string",
-            "voice": "string"
-        }
+  "api": {
+    "voitrain": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string"
     }
+  },
+  "auth": {
+    "voitrain": {
+      "AppClientID": "string",
+      "AppClientIDWeb": "string",
+      "HostedUIDomain": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
+      "OAuthMetadata": "string",
+      "UserPoolArn": "string",
+      "UserPoolId": "string",
+      "UserPoolName": "string"
+    }
+  },
+  "predictions": {
+    "speechGenerator6caa14bd": {
+      "language": "string",
+      "region": "string",
+      "voice": "string"
+    },
+    "transcription7ec01d63": {
+      "language": "string",
+      "region": "string"
+    }
+  }
 }

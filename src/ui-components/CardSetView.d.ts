@@ -4,13 +4,28 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
 import { CardSet } from "../models";
-import { ViewProps } from "@aws-amplify/ui-react";
+import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type CardSetViewOverridesProps = {
+    CardSetView?: PrimitiveOverrideProps<ViewProps>;
+    Name?: PrimitiveOverrideProps<TextProps>;
+    Delete?: PrimitiveOverrideProps<ViewProps>;
+    Vector35512511?: PrimitiveOverrideProps<IconProps>;
+    Image?: PrimitiveOverrideProps<ImageProps>;
+    play?: PrimitiveOverrideProps<ViewProps>;
+    Vector35512514?: PrimitiveOverrideProps<IconProps>;
+    pencil?: PrimitiveOverrideProps<ViewProps>;
+    Vector35512516?: PrimitiveOverrideProps<IconProps>;
+    practice?: PrimitiveOverrideProps<TextProps>;
+    edit?: PrimitiveOverrideProps<TextProps>;
+    deleteText?: PrimitiveOverrideProps<TextProps>;
+} & EscapeHatchProps;
 export declare type CardSetViewProps = React.PropsWithChildren<Partial<ViewProps> & {
     cardSet?: CardSet;
 } & {
-    overrides?: EscapeHatchProps | undefined | null;
+    overrides?: CardSetViewOverridesProps | undefined | null;
 }>;
 export default function CardSetView(props: CardSetViewProps): React.ReactElement;

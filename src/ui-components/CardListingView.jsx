@@ -5,19 +5,19 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
+import { Card } from "../models";
 import {
   getOverrideProps,
   useDataStoreDeleteAction,
 } from "@aws-amplify/ui-react/internal";
-import { Card } from "../models";
 import { schema } from "../models/schema";
 import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function CardListingView(props) {
   const { card, overrides, ...rest } = props;
   const deleteOnClick = useDataStoreDeleteAction({
-    id: card?.id,
     model: Card,
+    id: card?.id,
     schema: schema,
   });
   return (
@@ -28,8 +28,8 @@ export default function CardListingView(props) {
       boxShadow="0px 4px 10px rgba(0, 0, 0, 0.25)"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
-      {...rest}
       {...getOverrideProps(overrides, "CardListingView")}
+      {...rest}
     >
       <View
         position="absolute"

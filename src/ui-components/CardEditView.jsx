@@ -5,14 +5,14 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
+import { Card } from "../models";
 import {
   getOverrideProps,
   useDataStoreUpdateAction,
   useNavigateAction,
   useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
-import { Card } from "../models";
 import { schema } from "../models/schema";
 import { useEffect } from "react";
 import {
@@ -40,23 +40,23 @@ export default function CardEditView(props) {
   ] = useStateMutationAction("");
   const closeOnClick = useNavigateAction({ type: "reload" });
   const groupTwoEightOnClick = useDataStoreUpdateAction({
+    model: Card,
+    id: card?.id,
     fields: {
       word: textFieldTwoNineSevenSixSixNineTwoTwoValue,
       image_url: textFieldTwoNineSevenSixSixNineTwoThreeValue,
       cardsetID: textFieldTwoNineSevenSixSixNineTwoFourValue,
     },
-    id: card?.id,
-    model: Card,
     schema: schema,
   });
   const buttonOnClick = useDataStoreUpdateAction({
+    model: Card,
+    id: card?.id,
     fields: {
       word: textFieldTwoNineSevenSixSixNineTwoTwoValue,
       image_url: textFieldTwoNineSevenSixSixNineTwoThreeValue,
       cardsetID: textFieldTwoNineSevenSixSixNineTwoFourValue,
     },
-    id: card?.id,
-    model: Card,
     schema: schema,
   });
   useEffect(() => {
@@ -93,8 +93,8 @@ export default function CardEditView(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
-      {...rest}
       {...getOverrideProps(overrides, "CardEditView")}
+      {...rest}
     >
       <Flex
         gap="5px"

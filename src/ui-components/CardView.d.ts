@@ -4,13 +4,28 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
 import { Card } from "../models";
-import { ViewProps } from "@aws-amplify/ui-react";
+import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type CardViewOverridesProps = {
+    CardView?: PrimitiveOverrideProps<ViewProps>;
+    TextInCard?: PrimitiveOverrideProps<TextProps>;
+    SpokenText?: PrimitiveOverrideProps<TextProps>;
+    Image?: PrimitiveOverrideProps<ImageProps>;
+    Microphone?: PrimitiveOverrideProps<ViewProps>;
+    Vector35512504?: PrimitiveOverrideProps<IconProps>;
+    Play?: PrimitiveOverrideProps<ViewProps>;
+    Vector35512506?: PrimitiveOverrideProps<IconProps>;
+    "play sound"?: PrimitiveOverrideProps<TextProps>;
+    TextRec?: PrimitiveOverrideProps<TextProps>;
+    close?: PrimitiveOverrideProps<ViewProps>;
+    Vector36722758?: PrimitiveOverrideProps<IconProps>;
+} & EscapeHatchProps;
 export declare type CardViewProps = React.PropsWithChildren<Partial<ViewProps> & {
     card?: Card;
 } & {
-    overrides?: EscapeHatchProps | undefined | null;
+    overrides?: CardViewOverridesProps | undefined | null;
 }>;
 export default function CardView(props: CardViewProps): React.ReactElement;

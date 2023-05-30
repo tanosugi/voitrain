@@ -5,13 +5,13 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
+import { CardSet } from "../models";
 import {
   getOverrideProps,
   useDataStoreUpdateAction,
   useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
-import { CardSet } from "../models";
 import { schema } from "../models/schema";
 import { useEffect } from "react";
 import {
@@ -34,12 +34,12 @@ export default function CardSetEditView(props) {
     setTextFieldThreeFiveSevenSevenTwoSixZeroNineValue,
   ] = useStateMutationAction("");
   const groupTwoEightOnClick = useDataStoreUpdateAction({
+    model: CardSet,
+    id: cardSet?.id,
     fields: {
       name: textFieldThreeFiveSevenSevenTwoSixZeroEightValue,
       image_url: textFieldThreeFiveSevenSevenTwoSixZeroNineValue,
     },
-    id: cardSet?.id,
-    model: CardSet,
     schema: schema,
   });
   useEffect(() => {
@@ -68,8 +68,8 @@ export default function CardSetEditView(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
-      {...rest}
       {...getOverrideProps(overrides, "CardSetEditView")}
+      {...rest}
     >
       <Flex
         gap="5px"
